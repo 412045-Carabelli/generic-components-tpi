@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Tarjeta contenedora (card) */
+.gf-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px 16px;
+  max-width: 420px;        /* mobile-first: 1 columna */
+  margin-inline: auto;
+}
+
+/* Título proyectado (slot [gf-title]) */
+.gf-title-slot {
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+.gf-title-slot .gf-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f1f1f;
+}
+
+/* Grid del formulario: 1 columna en mobile */
+.gf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.w-full { width: 100%; }
+
+/* Mensaje de error compacto */
+mat-error {
+  font-size: 12px;
+  margin-top: 2px;
+  color: #d93025;
+}
+
+/* Acciones: centradas, look pill en botones (colores están en styles.scss) */
+.gf-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.gf-actions .mat-mdc-unelevated-button,
+.gf-actions .mat-mdc-outlined-button {
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 500;
+}

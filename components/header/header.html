@@ -1,0 +1,15 @@
+<header class="header"
+        [class.py-1]="paddingY === 1"
+        [class.py-2]="paddingY === 2"
+        [class.py-3]="paddingY === 3"
+        [class.py-4]="paddingY === 4"
+        [class.py-5]="paddingY === 5"
+>
+
+  <div class="header-title">
+    <ng-content select="[header-title]"></ng-content>
+  </div>
+  <div class="header-right">
+    <ng-content select="[mat-icon-button]"></ng-content>
+  </div>
+</header>

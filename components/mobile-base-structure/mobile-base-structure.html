@@ -1,0 +1,17 @@
+<app-header
+  [showButton]="showButton"
+  [paddingY]="4"
+>
+
+  <div header-title>
+    LCC <br />
+    LABORATORIO CASTILLO CHIDIAK
+  </div>
+  <button mat-icon-button (click)="onMenuClick()" class="header-right">
+    <mat-icon>menu</mat-icon>
+  </button>
+</app-header>
+<main class="app-body">
+  <router-outlet></router-outlet>
+</main>
+

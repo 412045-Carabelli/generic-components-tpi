@@ -1,0 +1,10 @@
+<div (click)="buttonClickEvent()" [style]="implContainerStyles()">
+  <button [class]="type" mat-stroked-button
+          [style]="implButtonStyles()"
+          [disabled]="disable">
+    @if (icon) {
+      <mat-icon>{{icon}}</mat-icon>
+    }
+    <span>{{text}}</span>
+  </button>
+</div>

@@ -1,0 +1,25 @@
+
+<h2 mat-dialog-title class="title"
+    [style.color]="headerColor"
+    [style.background]="headerBackground">
+  <mat-icon [style.color]="headerColor">account_circle</mat-icon>
+  {{ headerText }}
+</h2>
+
+<mat-dialog-content class="content"
+                    [style.background]="bgColor"
+                    [style.padding.px]="padPx">
+
+  <ng-container *ngComponentOutlet="contentCmp"></ng-container>
+
+  @if (buttons.length) {
+    <mat-divider class="divider" />
+    <mat-dialog-actions align="end" class="actions">
+      @for (btn of buttons; track btn) {
+        <div class="dyn-btn-wrapper" (click)="sendClickedMessage(btn)">
+          <ng-container *ngComponentOutlet="btn.component; inputs: btn.inputs"></ng-container>
+        </div>
+      }
+    </mat-dialog-actions>
+  }
+</mat-dialog-content>

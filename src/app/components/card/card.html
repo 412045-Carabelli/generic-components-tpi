@@ -1,0 +1,32 @@
+<article
+  class="card"
+  [ngClass]="colorTailwind"
+  [class.card--row]="layout === 'row'"
+  [class.card--column]="layout === 'column'"
+  [class.card--hoverable]="hovereable"
+  [class.px-1]="paddingX === 1"
+  [class.px-2]="paddingX === 2"
+  [class.px-3]="paddingX === 3"
+  [class.px-4]="paddingX === 4"
+  [class.px-5]="paddingX === 5"
+  [class.py-1]="paddingY === 1"
+  [class.py-2]="paddingY === 2"
+  [class.py-3]="paddingY === 3"
+  [class.py-4]="paddingY === 4"
+  [class.py-5]="paddingY === 5"
+>
+  <!-- HEADER -->
+  <div class="cardheader self-start">
+    <ng-content select="[card-header1]"></ng-content>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="cardcontent">
+    <ng-content select="[card-content]"></ng-content>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="card__actions">
+    <ng-content select="[card-actions]"></ng-content>
+  </div>
+</article>

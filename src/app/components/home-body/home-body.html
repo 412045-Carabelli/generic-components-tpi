@@ -1,0 +1,154 @@
+<!-- body-container.component.html -->
+<div class="body-container"
+     [class.gap--1]="gap === 'sm' "
+     [class.gap--3]="gap === 'md' "
+     [class.gap--5]="gap === 'lg' "
+>
+  <app-card class="app-body"
+            [layout]="'row'"
+            [paddingX]="4"
+            [paddingY]="5"
+            [hovereable]="true">
+
+    <!-- HEADER (icono a la izquierda) -->
+    <div card-header1 class="flex items-center gap-3">
+      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+        <mat-icon>waving_hand</mat-icon>
+      </div>
+      <div class="flex flex-col">
+        <h2 class="font-bold text-gray-800 self-start">BIENVENIDO!</h2>
+        <span class="text-gray-500 text-sm text-left">Acceda facilmente a sus turnos, estudios e información personal.</span>
+      </div>
+    </div>
+
+    <!-- CONTENT vacío en este caso -->
+    <div card-content></div>
+
+    <!-- ACTIONS (flecha a la derecha) -->
+
+    >
+  </app-card>
+  <app-card class="app-body"
+            [layout]="'row'"
+            [paddingX]="4"
+            [paddingY]="5"
+            [hovereable]="true">
+
+    <!-- HEADER (icono a la izquierda) -->
+    <div card-header1 class="flex items-center gap-3">
+      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+        <mat-icon>event</mat-icon>
+      </div>
+      <div class="flex flex-col">
+        <h2 class="font-bold text-gray-800 self-start">MIS TURNOS</h2>
+        <span class="text-gray-500 text-sm">Ver y solicitar citas médicas</span>
+      </div>
+    </div>
+
+    <!-- CONTENT vacío en este caso -->
+    <div card-content></div>
+
+    <!-- ACTIONS (flecha a la derecha) -->
+    <div card-actions class="ml-auto">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+
+    >
+  </app-card>
+  <app-card class="app-body"
+            [layout]="'row'"
+            [paddingX]="4"
+            [paddingY]="5"
+            [hovereable]="true">
+
+    <!-- HEADER (icono a la izquierda) -->
+    <div card-header1 class="flex items-center gap-3">
+      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+        <mat-icon>description</mat-icon>
+      </div>
+      <div class="flex flex-col">
+        <h2 class="font-bold text-gray-800 self-start">MIS ESTUDIOS</h2>
+        <span class="text-gray-500 text-sm">Resultados de análisis</span>
+      </div>
+    </div>
+
+    <!-- CONTENT vacío en este caso -->
+    <div card-content></div>
+
+    <!-- ACTIONS (flecha a la derecha) -->
+    <div card-actions class="ml-auto">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+
+    >
+  </app-card>
+  <app-card class="app-body"
+            [layout]="'row'"
+            [paddingX]="4"
+            [paddingY]="5"
+            [hovereable]="true">
+
+    <!-- HEADER (icono a la izquierda) -->
+    <div card-header1 class="flex items-center gap-3">
+      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+        <mat-icon>supervisor_account</mat-icon>
+      </div>
+      <div class="flex flex-col">
+        <h2 class="font-bold text-gray-800 self-start">MI FAMILIA</h2>
+        <span class="text-gray-500 text-sm">Datos familiares</span>
+      </div>
+    </div>
+
+    <!-- CONTENT vacío en este caso -->
+    <div card-content></div>
+
+    <!-- ACTIONS (flecha a la derecha) -->
+    <div card-actions class="ml-auto">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+
+    >
+  </app-card>
+  <app-card
+    [layout]="'column'"
+    [paddingX]="3"
+    [paddingY]="4"
+    [hovereable]="false"
+    [color-tailwind]="'bg-red-100'"
+  >
+
+    <!-- HEADER -->
+    <div card-header1 class="flex items-center gap-2 text-red-600">
+      <mat-icon>call</mat-icon>
+      <h2 class="font-bold text-gray-800">CONTACTO DE EMERGENCIA</h2>
+    </div>
+
+    <!-- CONTENT -->
+    <div card-content class="flex flex-col gap-3 w-full">
+
+      <!-- Teléfono principal -->
+      <div class="flex items-center gap-3 border rounded-lg bg-white p-3 shadow-sm">
+        <mat-icon class="text-green-600">phone</mat-icon>
+        <div class="flex flex-col">
+          <span class="font-semibold text-gray-700">Teléfono Principal</span>
+          <span class="text-green-600 font-bold text-lg">0800-123-4567</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="flex items-center gap-3 border rounded-lg bg-white p-3 shadow-sm">
+        <mat-icon class="text-green-600">mail</mat-icon>
+        <div class="flex flex-col">
+          <span class="font-semibold text-gray-700">WhatsApp</span>
+          <span class="text-green-600 font-bold text-lg">+54 11 1234-5678</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ACTIONS vacío -->
+    <div card-actions></div>
+
+  </app-card>
+
+</div>

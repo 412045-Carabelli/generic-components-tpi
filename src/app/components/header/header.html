@@ -1,15 +1,52 @@
-<header class="header"
-        [class.py-1]="paddingY === 1"
-        [class.py-2]="paddingY === 2"
-        [class.py-3]="paddingY === 3"
-        [class.py-4]="paddingY === 4"
-        [class.py-5]="paddingY === 5"
->
+<div class="w-full">
+  <!-- Header -->
+  <div
+    class="flex justify-between items-center px-4 py-3 bg-[#00BBB0] text-white cursor-pointer"
+    (click)="isOpen = !isOpen"
+  >
+    <div class="flex items-center gap-3 p-3">
+      <img ngSrc="assets/logo.png" alt="logo" class="w-8 h-11" height="289" width="198"/>
+      <span class="font-semibold leading-tight text-left flex align-bottom">
+        LABORATORIO <br> CASTILLO CHIDIAK
+      </span>
+    </div>
 
-  <div class="header-title">
-    <ng-content select="[header-title]"></ng-content>
+    <mat-icon>{{ isOpen ? 'expand_less' : 'person' }}</mat-icon>
   </div>
-  <div class="header-right">
-    <ng-content select="[mat-icon-button]"></ng-content>
-  </div>
-</header>
+
+  <!-- Contenido desplegable -->
+  @if (isOpen) {
+    <div
+      class="bg-[#00BBB0] text-white p-4 space-y-4
+             transition-all duration-300 ease-in-out
+             transform -translate-y-2 opacity-0
+             animate-fadeIn"
+    >
+      <!-- Usuario -->
+      <div class="flex justify-between items-center bg-[#00BBB0] border border-white rounded-lg p-2">
+        <div class="text-left">
+          <p class="font-semibold">SANCHEZ MARIA ELENA</p>
+          <p class="text-sm">12438548</p>
+        </div>
+        <div class="bg-teal-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+          SM
+        </div>
+      </div>
+
+      <!-- Botón cerrar sesión -->
+      <div class="flex flex-row gap-2 2fr">
+        <button
+          class="w-full flex-[2] bg-[#F0713B] text-white font-semibold py-2 rounded-lg"
+        >
+          CERRAR SESION
+        </button>
+        <button
+          (click)="donwload()"
+          class="w-full bg-amber-400 flex-[1] text-white font-semibold py-2 rounded-lg 1fr flex justify-center"
+        >
+          <mat-icon>download</mat-icon>
+        </button>
+      </div>
+    </div>
+  }
+</div>

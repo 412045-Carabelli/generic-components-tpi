@@ -9,10 +9,7 @@ import {MatIconButton} from '@angular/material/button';
   selector: 'app-mobile-base-structure',
   imports: [
     Header,
-    ButtonComponent,
-    RouterOutlet,
-    MatIcon,
-    MatIconButton
+    RouterOutlet
   ],
   templateUrl: './mobile-base-structure.html',
   styleUrl: './mobile-base-structure.css'

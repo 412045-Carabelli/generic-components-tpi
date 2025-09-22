@@ -14,4 +14,6 @@ import {MatIcon} from '@angular/material/icon';
 export class HomeBody {
   gap: "sm" | "md" | "lg" = "md";
 
+
+
 }

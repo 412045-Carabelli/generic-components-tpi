@@ -45,12 +45,13 @@
   </div>
 
 
-  <section class="mt-5 space-y-5">
+
     @for (t of turnos; track t.id) {
       <app-card
         [layout]="'column'"
         [paddingX]="4"
         [paddingY]="4"
+        [marginY]="4"
         [hovereable]="true"
         color-tailwind="bg-white"
       >
@@ -76,24 +77,43 @@
         </div>
 
         <div card-actions class="w-full mt-2">
+          @if (t.advertencias?.length){
+            @for(advertencia of t.advertencias; track $index){
+
+              <app-card><p>Preparación: {{advertencia}}</p></app-card>
+
+            }
+          }
           <div class="flex items-center justify-between w-full">
-            <span class="estado-chip" [class.chip-ok]="t.estado === 'Confirmado'">
-              {{ t.estado }}
-            </span>
             <app-button
-              text="Modificar Turno"
+              text="{{t.estado}}"
               type="secondary"
               width="100%"
               height="48px"
               [bgColor]="'#ffffff'"
-              [txtColor]="'#111827'"
-              (clicked)="modificarTurno(t.id)"
+              [txtColor]="'rgba(0,0,0,0.47)'"
+              [yPad]="'1'"
+              [xPad]="'1'"
+
             ></app-button>
+
           </div>
+          <app-button
+            text="Modificar Turno"
+            type="secondary"
+            width="100%"
+            height="48px"
+            [bgColor]="'#ffffff'"
+            [txtColor]="'rgba(0,0,0,0.47)'"
+            [yPad]="'1'"
+            [xPad]="'1'"
+
+            (clicked)="modificarTurno(t.id)"
+          ></app-button>
         </div>
       </app-card>
     }
-  </section>
+
 </main>
 
 <footer class="footer fixed left-0 right-0 bottom-0 px-4 py-3">

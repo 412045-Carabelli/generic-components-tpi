@@ -18,5 +18,9 @@ export class Card {
 
   @Input() paddingY: 1 | 2 | 3 | 4 | 5 = 4;
 
+  @Input() marginX: 1 | 2 | 3 | 4 | 5 = 1;
+
+  @Input() marginY: 1 | 2 | 3 | 4 | 5 = 1;
+
   @Input('color-tailwind') colorTailwind: string = "bg-[#f7f9fa]";
 }

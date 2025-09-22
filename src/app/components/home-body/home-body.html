@@ -6,8 +6,8 @@
 >
   <app-card class="app-body"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="4"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
             [hovereable]="false">
 
     <!-- HEADER (icono a la izquierda) -->
@@ -30,8 +30,8 @@
   </app-card>
   <app-card class="app-body"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
             [hovereable]="true">
 
     <!-- HEADER (icono a la izquierda) -->
@@ -55,12 +55,13 @@
 
     >
   </app-card>
-  <app-card class="app-body"
+  <app-card class="app-body cursor-pointer"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
-            [hovereable]="true">
-
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
+            [hovereable]="true"
+            routerLink="/study"
+  >
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
       <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
@@ -84,8 +85,8 @@
   </app-card>
   <app-card class="app-body"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
             [hovereable]="true">
 
     <!-- HEADER (icono a la izquierda) -->
@@ -111,8 +112,8 @@
   </app-card>
   <app-card
     [layout]="'column'"
-    [paddingX]="3"
-    [paddingY]="4"
+    [paddingX]="'2rem'"
+    [paddingY]="'2rem'"
     [hovereable]="false"
     [color-tailwind]="'bg-red-100'"
   >

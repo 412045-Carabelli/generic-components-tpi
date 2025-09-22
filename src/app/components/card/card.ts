@@ -14,9 +14,9 @@ export class Card {
 
   @Input() hovereable = true;
 
-  @Input() paddingX: 1 | 2 | 3 | 4 | 5 = 1;
+  @Input() paddingX: string = "1rem";
 
-  @Input() paddingY: 1 | 2 | 3 | 4 | 5 = 4;
+  @Input() paddingY: string = "4rem";
 
   @Input('color-tailwind') colorTailwind: string = "bg-[#f7f9fa]";
 }

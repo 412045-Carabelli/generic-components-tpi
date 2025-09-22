@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {Card} from '../card/card';
 import {MatIcon} from '@angular/material/icon';
+import {Card} from '../card/card';
 import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-home-body',
   imports: [
-    Card,
     MatIcon,
+    Card,
     RouterLink
   ],
   templateUrl: './home-body.html',
@@ -15,7 +15,5 @@ import {RouterLink} from '@angular/router';
 })
 export class HomeBody {
   gap: "sm" | "md" | "lg" = "md";
-
-
 
 }

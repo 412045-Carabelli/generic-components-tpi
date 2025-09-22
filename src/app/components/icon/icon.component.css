@@ -1,0 +1,41 @@
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: inherit;
+    line-height: 1;
+}
+
+.icon--sm {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.icon--md {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+
+.icon--lg {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+}
+
+.icon--xl {
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+}
+
+/* 👇 Asegura que el mat-icon respete el tamaño */
+.icon-wrapper ::ng-deep mat-icon {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+}

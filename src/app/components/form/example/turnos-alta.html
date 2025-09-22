@@ -1,0 +1,8 @@
+<!-- Usamos el componente genérico e inyectamos título + config + valores iniciales -->
+<app-generic-form
+  [config]="config"
+  [value]="initialValue"
+  (formSubmit)="onSubmit($event)"
+>
+  <h2 gf-title class="gf-title">Solicitar Nuevo Turno</h2>
+</app-generic-form>

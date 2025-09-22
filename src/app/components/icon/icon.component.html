@@ -1,0 +1,14 @@
+<div
+    class="icon-wrapper"
+    [class.icon--sm]="iconSize === 'sm'"
+    [class.icon--md]="iconSize === 'md'"
+    [class.icon--lg]="iconSize === 'lg'"
+    [class.icon--xl]="iconSize === 'xl'"
+    [style.color]="iconColor"
+    [style.background-color]="backgroundColor"
+    [style.border-radius]="borderRadius"
+    [style.margin]="margin"
+    [style.box-shadow]="backgroundColor === 'transparent' ? 'none' : ''"
+>
+    <ng-content></ng-content>
+</div>

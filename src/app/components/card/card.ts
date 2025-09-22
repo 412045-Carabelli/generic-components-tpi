@@ -6,8 +6,8 @@ import {NgClass} from '@angular/common';
   imports: [
     NgClass
   ],
-  templateUrl: './card.html',
-  styleUrl: './card.css'
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.css'
 })
 export class Card {
   @Input() layout: 'row' | 'column' = 'row';

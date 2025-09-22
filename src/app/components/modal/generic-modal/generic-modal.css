@@ -1,0 +1,10 @@
+.title { display:flex; align-items:center; gap:8px; font-weight:800; }
+.content { display:grid; gap:12px; min-width: 280px; }
+.row { display:grid; grid-template-columns: 96px 1fr; gap:12px; align-items:center; }
+.label { color:#678; font-size:13px; }
+.value { font-weight:600; }
+.actions {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}

@@ -7,10 +7,9 @@ import {MatFabButton} from '@angular/material/button';
 @Component({
   selector: 'app-study-body',
   imports: [
-    Card,
     MatIcon,
     RouterLink,
-    MatFabButton
+    Card,
   ],
   templateUrl: './study-body.html',
   styleUrl: './study-body.css'

@@ -1,0 +1,28 @@
+<div class="flex flex-col">
+
+  <div class="px-5 py-5 flex flex-row text-center items-center gap-2"
+      [style.color]="headerColor"
+      [style.background]="headerBackground"
+  >
+    <mat-icon [style.color]="headerColor">account_circle</mat-icon>
+    <h1 class="font-bold">{{ headerText }}</h1>
+  </div>
+
+  <mat-dialog-content class="content"
+                      [style.background]="bgColor"
+                      [style.padding.px]="padPx">
+
+    <ng-container *ngComponentOutlet="contentCmp"></ng-container>
+
+    @if (buttons.length) {
+      <mat-divider class="divider" />
+      <mat-dialog-actions align="end" class="actions">
+        @for (btn of buttons; track btn) {
+          <div class="dyn-btn-wrapper" (click)="sendClickedMessage(btn)">
+            <ng-container *ngComponentOutlet="btn.component; inputs: btn.inputs"></ng-container>
+          </div>
+        }
+      </mat-dialog-actions>
+    }
+  </mat-dialog-content>
+</div>

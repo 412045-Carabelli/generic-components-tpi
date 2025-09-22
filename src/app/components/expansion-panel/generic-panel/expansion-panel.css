@@ -1,0 +1,8 @@
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+::ng-deep .orange-badge .mat-badge-content {
+  background-color: #f97316;
+  color: white;
+}

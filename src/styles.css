@@ -21,3 +21,45 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
 }
+
+:root {
+  /* Marca */
+  --brand-primary: #00BBB8;
+  --brand-primary-700: #008F8C;
+  /* hover/active accesible */
+  --brand-secondary: #00435D;
+  --brand-accent: #F97133;
+
+  /* Estados */
+  --brand-warn: #D32F2F;
+  --brand-success: #2E7D32;
+
+  /* Neutros */
+  --surface: #FFFFFF;
+  --surface-alt: #EDEFF4;
+  --background: #FDFEFE;
+  --border-color: #D5E2E4;
+
+  /* Texto */
+  --on-primary: #FFFFFF;
+  --on-surface: #00435D;
+  --on-surface-muted: #757477;
+  /* Canvas y contraplano */
+  --canvas: #F4F7FA;
+  --card: #FFFFFF;
+  --card-subtle: #FBFCFE;
+
+  /* Gradientes */
+  --section-gradient: linear-gradient(180deg, var(--card) 0%, var(--card-subtle) 100%);
+  /* Toolbar accesible: base teal-700 con leve luz arriba */
+  --toolbar-gradient: linear-gradient(180deg, color-mix(in srgb, #00796B 92%, white) 0%, #00796B 100%);
+  --font-body: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --brand-ig-stop-1: #F58529;
+  --brand-ig-stop-2: #FEDA77;
+  --brand-ig-stop-3: #DD2A7B;
+  --brand-ig-stop-4: #8134AF;
+  --brand-ig-stop-5: #515BD4;
+  --brand-ig-gradient: linear-gradient(45deg, var(--brand-ig-stop-1), var(--brand-ig-stop-2), var(--brand-ig-stop-3), var(--brand-ig-stop-4), var(--brand-ig-stop-5));
+}

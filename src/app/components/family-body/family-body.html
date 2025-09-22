@@ -1,0 +1,179 @@
+<section class="flex md:w-4/5 flex-col gap-5 justify-center mx-auto my-5">
+  <h1 class="text-xl md:text-2xl font-bold">Miembros de la Familia</h1>
+
+  <div class="w-full md:w-1/2 mx-auto">
+    <app-button (clicked)="openModal()" class="flex justify-center" icon="add" text="Agregar Familiar" bgColor="#F26A1B" txtColor="white" width="80%"></app-button>
+  </div>
+
+  <div class="grid md:grid-cols-2 grid-cols-1 gap-10 mx-auto">
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>person</mat-icon>
+          </div>
+          <div class="text-start flex flex-col">
+            <h2 class="font-semibold text-gray-800">Juan Pérez</h2>
+            <p class="text-xs">Esposo</p>
+          </div>
+        </div>
+        <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+      Confirmado
+    </span>-->
+      </div>
+
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">DNI:</h1>
+          <span>00000000</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">Teléfono:</h1>
+          <span>00000000</span>
+        </div>
+      </div>
+
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-wrap gap-3">
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">visibility</mat-icon>
+          <p class="leading-none">Ver Datos Completos</p>
+        </button>
+
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">edit</mat-icon>
+          <p class="leading-none">Editar Información</p>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>person</mat-icon>
+          </div>
+          <div class="text-start flex flex-col">
+            <h2 class="font-semibold text-gray-800">Silvia García</h2>
+            <p class="text-xs">Madre</p>
+          </div>
+        </div>
+        <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+      Confirmado
+    </span>-->
+      </div>
+
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">DNI:</h1>
+          <span>00000000</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">Teléfono:</h1>
+          <span>00000000</span>
+        </div>
+      </div>
+
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-wrap gap-3">
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">visibility</mat-icon>
+          <p class="leading-none">Ver Datos Completos</p>
+        </button>
+
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">edit</mat-icon>
+          <p class="leading-none">Editar Información</p>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>person</mat-icon>
+          </div>
+          <div class="text-start flex flex-col">
+            <h2 class="font-semibold text-gray-800">Pedro Pérez</h2>
+            <p class="text-xs">Hijo</p>
+          </div>
+        </div>
+        <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+      Confirmado
+    </span>-->
+      </div>
+
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">DNI:</h1>
+          <span>00000000</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold">Teléfono:</h1>
+          <span>00000000</span>
+        </div>
+      </div>
+
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-wrap gap-3">
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">visibility</mat-icon>
+          <p class="leading-none">Ver Datos Completos</p>
+        </button>
+
+        <button
+          class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon class="flex-none -mt-px">edit</mat-icon>
+          <p class="leading-none">Editar Información</p>
+        </button>
+      </div>
+
+    </app-card>
+  </div>
+  <button
+    aria-label="Ir al inicio"
+    [routerLink]="['/home']"
+    class="flex align-middle justify-center !fixed !bottom-[calc(1rem+env(safe-area-inset-bottom))] !right-4 !z-50
+         !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
+         focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+</section>

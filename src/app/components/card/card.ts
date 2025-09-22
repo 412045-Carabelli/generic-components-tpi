@@ -6,17 +6,17 @@ import {NgClass} from '@angular/common';
   imports: [
     NgClass
   ],
-  templateUrl: './card.html',
-  styleUrl: './card.css'
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.css'
 })
 export class Card {
   @Input() layout: 'row' | 'column' = 'row';
 
   @Input() hovereable = true;
 
-  @Input() paddingX: 1 | 2 | 3 | 4 | 5 = 1;
+  @Input() paddingX: string = "1rem";
 
-  @Input() paddingY: 1 | 2 | 3 | 4 | 5 = 4;
+  @Input() paddingY: string = "4rem";
 
   @Input('color-tailwind') colorTailwind: string = "bg-[#f7f9fa]";
 }

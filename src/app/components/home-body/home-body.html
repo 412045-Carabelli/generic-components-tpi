@@ -6,13 +6,13 @@
 >
   <app-card class="app-body"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="4"
-            [hovereable]="false">
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
+            [hovereable]="true">
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
         <mat-icon>waving_hand</mat-icon>
       </div>
       <div class="flex flex-col">
@@ -25,18 +25,17 @@
     <div card-content></div>
 
     <!-- ACTIONS (flecha a la derecha) -->
-
-    >
+  >
   </app-card>
-  <app-card class="app-body"
+  <app-card class="app-body cursor-pointer"
             [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
             [hovereable]="true">
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
         <mat-icon>event</mat-icon>
       </div>
       <div class="flex flex-col">
@@ -55,15 +54,17 @@
 
     >
   </app-card>
-  <app-card class="app-body"
-            [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
-            [hovereable]="true">
+  <app-card class="app-body cursor-pointer"
+    [layout]="'row'"
+    [paddingX]="'2rem'"
+    [paddingY]="'2rem'"
+    [hovereable]="true"
+    routerLink="/study"
+  >
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
         <mat-icon>description</mat-icon>
       </div>
       <div class="flex flex-col">
@@ -82,15 +83,17 @@
 
     >
   </app-card>
-  <app-card class="app-body"
-            [layout]="'row'"
-            [paddingX]="4"
-            [paddingY]="5"
-            [hovereable]="true">
+  <app-card class="app-body cursor-pointer"
+    [layout]="'row'"
+    [paddingX]="'2rem'"
+    [paddingY]="'2rem'"
+    [hovereable]="true"
+    routerLink="/family"
+  >
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="p-3 rounded-lg bg-teal-100 text-teal-600">
+      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
         <mat-icon>supervisor_account</mat-icon>
       </div>
       <div class="flex flex-col">
@@ -111,8 +114,8 @@
   </app-card>
   <app-card
     [layout]="'column'"
-    [paddingX]="3"
-    [paddingY]="4"
+    [paddingX]="'2rem'"
+    [paddingY]="'2rem'"
     [hovereable]="false"
     [color-tailwind]="'bg-red-100'"
   >
@@ -150,5 +153,4 @@
     <div card-actions></div>
 
   </app-card>
-
 </div>

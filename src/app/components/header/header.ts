@@ -15,27 +15,27 @@ import {NgOptimizedImage} from '@angular/common';
 export class Header {
   @Input() showButton: boolean = false;
 
-  @Input() paddingY: 1 | 2 | 3 | 4 | 5 = 2;
+  @Input() paddingY: string = "2rem";
 
   isOpen = false;
 
 
   private _deferredPrompt = signal<any | null>(null);
-    canInstall = computed(() => !!this._deferredPrompt());
+  canInstall = computed(() => !!this._deferredPrompt());
 
-    constructor() {
-      window.addEventListener('beforeinstallprompt', (e: Event) => {
-        e.preventDefault();
-        this._deferredPrompt.set(e as any);
-      });
-    }
+  constructor() {
+    window.addEventListener('beforeinstallprompt', (e: Event) => {
+      e.preventDefault();
+      this._deferredPrompt.set(e as any);
+    });
+  }
 
-    async donwload(): Promise<any> {
-      const p = this._deferredPrompt();
-      if (!p) return;
-      await p.prompt();
-      await p.userChoice;
-      this._deferredPrompt.set(null);
+  async donwload(): Promise<any> {
+    const p = this._deferredPrompt();
+    if (!p) return;
+    await p.prompt();
+    await p.userChoice;
+    this._deferredPrompt.set(null);
 
   }
 }

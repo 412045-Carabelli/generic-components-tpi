@@ -1,0 +1,105 @@
+<section class="gf-card" [style.padding-inline]="'30px'">
+  <!-- Slot para título (el padre inyecta su <h2 gf-title> … </h2>) -->
+  <div class="gf-title-slot">
+    <ng-content select="[gf-title]"></ng-content>
+  </div>
+
+  <!-- Form reactivo: se arma con config.fields -->
+  <form class="gf-grid" [formGroup]="form" (ngSubmit)="submit()">
+    @for (field of config.fields; track field.key) {
+
+      <!-- TEXT / NUMBER / TEXTAREA -->
+      @if (field.type === 'text' || field.type === 'number' || field.type === 'textarea') {
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>{{ field.label }}</mat-label>
+
+          @if (field.type !== 'textarea') {
+            <input
+              matInput
+              [type]="field.type"
+              [attr.placeholder]="field.placeholder ?? null"
+              [formControlName]="field.key" />
+          } @else {
+            <textarea
+              matInput
+              rows="3"
+              [attr.placeholder]="field.placeholder ?? null"
+              [formControlName]="field.key"
+              [style.max-height]="'200px'">
+            </textarea>
+          }
+
+          <!-- Mensaje de error mínimo para 'required' -->
+          @if (form.get(field.key)?.touched && form.get(field.key)?.hasError('required')) {
+            <mat-error>Campo requerido</mat-error>
+          }
+        </mat-form-field>
+      }
+
+      <!-- DATE -->
+      @if (field.type === 'date') {
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>{{ field.label }}</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [attr.placeholder]="field.placeholder ?? 'dd/mm/yyyy'"
+            [formControlName]="field.key" />
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <!-- touchUi: en mobile abre como modal y no se superpone al form -->
+          <mat-datepicker #picker touchUi></mat-datepicker>
+
+          @if (form.get(field.key)?.touched && form.get(field.key)?.hasError('required')) {
+            <mat-error>Campo requerido</mat-error>
+          }
+        </mat-form-field>
+      }
+
+      <!-- TIME -->
+      @if (field.type === 'time') {
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>{{ field.label }}</mat-label>
+
+          <input
+            matInput
+            type="time"
+            [attr.placeholder]="field.placeholder ?? null"
+            [formControlName]="field.key" />
+
+          @if (form.get(field.key)?.touched && form.get(field.key)?.hasError('required')) {
+            <mat-error>Campo requerido</mat-error>
+          }
+        </mat-form-field>
+      }
+
+      <!-- SELECT -->
+      @if (field.type === 'select') {
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>{{ field.label }}</mat-label>
+
+          <mat-select [formControlName]="field.key">
+            @for (opt of (field.options || []); track opt.value) {
+              <mat-option [value]="opt.value">{{ opt.label }}</mat-option>
+            }
+          </mat-select>
+
+          @if (form.get(field.key)?.touched && form.get(field.key)?.hasError('required')) {
+            <mat-error>Campo requerido</mat-error>
+          }
+        </mat-form-field>
+      }
+    }
+
+    <!-- Acciones (botones con color desde styles.scss) -->
+    <div class="gf-actions">
+      <button mat-stroked-button type="button" class="btn-cancel" (click)="resetToInitial()">Cancelar</button>
+
+      <!-- Submit deshabilitado hasta que el form sea válido -->
+      <button mat-flat-button class="btn-primary" type="submit" [disabled]="form.invalid">
+        {{ config.submitText ?? 'Crear turno' }}
+      </button>
+    </div>
+  </form>
+</section>

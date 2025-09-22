@@ -1,0 +1,47 @@
+<mat-accordion class="w-full">
+  <mat-expansion-panel
+    hideToggle
+    class="!shadow-md !rounded-2xl !border !border-gray-200"
+    #panel="matExpansionPanel"
+    (opened)="panelOpenState.set(true)"
+    (closed)="panelOpenState.set(false)"
+  >
+    <mat-expansion-panel-header class="!px-4 !py-3">
+      <div class="flex justify-between items-center w-full">
+        <div>
+          <mat-panel-title class="text-base text-gray-800 flex gap-2 p-2">
+            @if (badge && badge > 0) {
+              <h1
+                [matBadge]="badge"
+                matBadgeOverlap="false"
+                matBadgePosition="above after"
+                matBadgeSize="large"
+                class="orange-badge"
+              >
+                {{ title }}
+              </h1>
+            } @else {
+              <h1>{{ title }}</h1>
+            }
+          </mat-panel-title>
+
+          <mat-panel-description class="text-sm text-gray-500">
+            {{ description }}
+          </mat-panel-description>
+        </div>
+
+        <!-- Flecha con rotación -->
+        <mat-icon
+          class="transition-transform duration-300 text-gray-500"
+          [class.rotate-180]="panel.expanded"
+        >
+          expand_more
+        </mat-icon>
+      </div>
+    </mat-expansion-panel-header>
+
+    <div class=" text-gray-700 text-sm space-y-4">
+      <ng-content></ng-content>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

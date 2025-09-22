@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {Card} from './card';
 
+import { GenericForm } from './generic-form';
 
-describe('Card', () => {
-  let component: Card;
-  let fixture: ComponentFixture<Card>;
+describe('GenericForm', () => {
+  let component: GenericForm;
+  let fixture: ComponentFixture<GenericForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Card]
+      imports: [GenericForm]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Card);
+    fixture = TestBed.createComponent(GenericForm);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

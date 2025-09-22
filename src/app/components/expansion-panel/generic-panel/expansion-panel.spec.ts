@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {Card} from './card';
 
+import { ExpansionPanel } from './expansion-panel';
 
-describe('Card', () => {
-  let component: Card;
-  let fixture: ComponentFixture<Card>;
+describe('ExpansionPanel', () => {
+  let component: ExpansionPanel;
+  let fixture: ComponentFixture<ExpansionPanel>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Card]
+      imports: [ExpansionPanel]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Card);
+    fixture = TestBed.createComponent(ExpansionPanel);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

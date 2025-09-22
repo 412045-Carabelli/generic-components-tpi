@@ -1,5 +1,5 @@
 <div (click)="buttonClickEvent()" [style]="implContainerStyles()">
-  <button
+  <button [class]="type" mat-stroked-button
           [style]="implButtonStyles()"
           [disabled]="disable">
     @if (icon) {

@@ -26,8 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-button',
   imports: [MatButtonModule, MatIconModule],
-  templateUrl: './button.html',
-  styleUrl: './button.css',
+  templateUrl: 'button.html',
+  styleUrl: 'button.css',
 })
 export class ButtonComponent {
   /**
@@ -93,6 +93,10 @@ export class ButtonComponent {
   @Input() txtSize: string = 'large';
 
   /**
+   * Optional input used to determinate the background color of the button
+   */
+  @Input() bgColor?: string;
+  /**
    * Optional Material Design icon name to display alongside the text
    * Uses Material Icons font - pass the icon name as a string
    * @example 'save', 'delete', 'edit', 'arrow_forward'
@@ -117,17 +121,15 @@ export class ButtonComponent {
    * @private
    */
   implButtonStyles(): string {
-    return (
-      'padding: ' +
-      this.yPad +
-      ' ' +
-      this.xPad +
-      '; color: ' +
-      this.txtColor +
-      '; font-size: ' +
-      this.txtSize +
-      '; '
-    );
+    let styles = `padding: ${this.yPad} ${this.xPad}; `;
+    styles += `color: ${this.txtColor}; `;
+    styles += `font-size: ${this.txtSize}; `;
+
+    if (this.bgColor) {
+      styles += `background-color: ${this.bgColor}; `;
+    }
+
+    return styles;
   }
 
   /**

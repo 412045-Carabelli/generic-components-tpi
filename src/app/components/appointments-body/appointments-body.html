@@ -1,0 +1,109 @@
+
+
+<main class="page px-4 pb-24">
+
+  <div class="mt-4 header-spacer"></div>
+
+  <div class="mt-4">
+    <app-card
+      [layout]="'row'"
+      [paddingX]="4"
+      [paddingY]="4"
+      [hovereable]="false"
+      color-tailwind="bg-[#169b8e] text-white"
+    >
+      <div card-header1 class="w-full">
+        <div class="flex items-center gap-3 w-full">
+          <div class="min-w-0">
+            <div class="font-extrabold text-xl">{{ paciente.nombre }}</div>
+            <div class="opacity-90">Paciente</div>
+          </div>
+
+          <div
+            class="w-14 h-14 rounded-full bg-white text-[#169b8e] font-bold grid place-items-center ml-80 shrink-0">
+            {{ iniciales }}
+          </div>
+        </div>
+      </div>
+
+      <div card-content></div>
+      <div card-actions></div>
+    </app-card>
+  </div>
+
+
+  <div class="mt-4">
+    <app-button
+      text="+ Solicitar Nuevo Turno"
+      type="primary"
+      width="100%"
+      height="56px"
+      [bgColor]="'#F26A1B'"
+      [txtColor]="'#ffffff'"
+      (clicked)="solicitarNuevoTurno()"
+    ></app-button>
+  </div>
+
+
+  <section class="mt-5 space-y-5">
+    @for (t of turnos; track t.id) {
+      <app-card
+        [layout]="'column'"
+        [paddingX]="4"
+        [paddingY]="4"
+        [hovereable]="true"
+        color-tailwind="bg-white"
+      >
+        <div card-header1 class="flex items-start gap-4 w-full">
+          <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 grid place-items-center text-2xl">
+            <mat-icon>calendar_today</mat-icon>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-xl font-extrabold text-gray-900">{{ t.estudio }}</h2>
+            <div class="mt-2 flex items-center gap-2 text-gray-700">
+              <mat-icon class="text-base">schedule</mat-icon>
+              <span>{{ t.fecha }} a las {{ t.hora }}</span>
+            </div>
+            <div class="mt-1 flex items-center gap-2 text-gray-700">
+              <span class="text-xl">👨‍⚕️</span>
+              <span>{{ t.doctor }}</span>
+            </div>
+            <div class="mt-1 flex items-center gap-2 text-gray-700">
+              <span class="text-xl">📍</span>
+              <span>{{ t.sede }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div card-actions class="w-full mt-2">
+          <div class="flex items-center justify-between w-full">
+            <span class="estado-chip" [class.chip-ok]="t.estado === 'Confirmado'">
+              {{ t.estado }}
+            </span>
+            <app-button
+              text="Modificar Turno"
+              type="secondary"
+              width="100%"
+              height="48px"
+              [bgColor]="'#ffffff'"
+              [txtColor]="'#111827'"
+              (clicked)="modificarTurno(t.id)"
+            ></app-button>
+          </div>
+        </div>
+      </app-card>
+    }
+  </section>
+</main>
+
+<footer class="footer fixed left-0 right-0 bottom-0 px-4 py-3">
+  <app-button
+    text="Volver al Inicio"
+    type="primary"
+    width="100%"
+    height="56px"
+    [bgColor]="'#0f9d8a'"
+    [txtColor]="'#ffffff'"
+    (clicked)="volverInicio()"
+  ></app-button>
+</footer>

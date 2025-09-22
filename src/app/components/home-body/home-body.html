@@ -32,7 +32,9 @@
             [layout]="'row'"
             [paddingX]="4"
             [paddingY]="5"
-            [hovereable]="true">
+            [hovereable]="true"
+            (click)="redirect('/appointments')"
+  >
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header1 class="flex items-center gap-3">

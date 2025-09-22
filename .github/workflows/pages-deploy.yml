@@ -1,0 +1,79 @@
+name: Deploy Angular PWA to GitHub Pages
+
+on:
+  push:
+    branches: [ deploy ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+
+      - name: Build Angular (prod)
+        run: |
+          if npm run | grep -q " build"; then
+            npm run build -- --configuration production
+          else
+            npx ng build --configuration production
+          fi
+
+      - name: Fix base href & add SPA fallback
+        run: |
+          OUTDIR=""
+          if ls -d dist/*/browser >/dev/null 2>&1; then
+            OUTDIR=$(ls -d dist/*/browser | head -n1)
+          elif [ -d dist ]; then
+            OUTDIR="dist"
+          else
+            echo "No se encontró carpeta dist" && exit 1
+          fi
+          echo "OUTDIR=$OUTDIR" >> $GITHUB_ENV
+
+          INDEX="$OUTDIR/index.html"
+          if grep -q '<base href="' "$INDEX"; then
+            sed -i 's#<base href="[^"]*"#<base href="/generic-components-tpi/"#' "$INDEX"
+          else
+            sed -i 's#<head>#<head><base href="/generic-components-tpi/">#' "$INDEX"
+          fi
+
+          cp "$OUTDIR/index.html" "$OUTDIR/404.html"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUTDIR }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,380 +1,382 @@
-<div class="body-container"
-     [class.gap--1]="gap === 'sm' "
-     [class.gap--3]="gap === 'md' "
-     [class.gap--5]="gap === 'lg' "
->
-  <app-card
-    [layout]="'column'"
-    [paddingX]="'3rem'"
-    [paddingY]="'4rem'"
-    [hovereable]="true">
+<section class="flex md:w-4/5 flex-col gap-5 justify-center align-middle mx-auto my-5">
 
-    <!-- HEADER -->
-    <div card-header class="w-full flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
-          <mat-icon>event</mat-icon>
-        </div>
-        <h2 class="font-semibold text-gray-800">ANÁLISIS DE SANGRE COMPLETO</h2>
-      </div>
-      <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-    Confirmado
-  </span>-->
-    </div>
+  <h1 class="text-xl md:text-2xl font-bold">Mis Estudios</h1>
 
-    <!-- CONTENT -->
-    <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="access_time"></mat-icon>
-        <span>15/09/2024 a las 10:00</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="person"></mat-icon>
-        <span>Dr. García López</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="location_on"></mat-icon>
-        <span>Sucursal Centro</span>
-      </div>
-      <span class="inline-flex self-start items-center px-3 py-1 rounded-md
-         bg-emerald-600 text-white text-xs font-semibold
-         shadow-sm ring-1 ring-emerald-700/20">
-      Completado
-    </span>
-    </div>
+  <div class="grid gap-5 md:grid-cols-2">
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
 
-
-    <!-- ACTIONS -->
-    <div card-actions class="w-full flex flex-col gap-3">
-      <!-- Botón Preparación -->
-      <!--<button
-              class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
-      >
-          <span>Preparación</span>
-          <div class="flex items-center gap-2">
-      <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        2
-      </span>
-              <mat-icon>expand_more</mat-icon>
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>event</mat-icon>
           </div>
-      </button>-->
-      <!-- Ver Resultado -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Ver Resultado</span>
-      </button>
-
-      <!-- Descargar PDF -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Descargar PDF</span>
-      </button>
-    </div>
-
-  </app-card>
-  <app-card
-    [layout]="'column'"
-    [paddingX]="'3rem'"
-    [paddingY]="'4rem'"
-    [hovereable]="true">
-
-    <!-- HEADER -->
-    <div card-header class="w-full flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
-          <mat-icon>event</mat-icon>
+          <h2 class="text-start font-semibold text-gray-800">Análisis de sangre completo</h2>
         </div>
-        <h2 class="font-semibold text-gray-800">ANÁLISIS DE SANGRE COMPLETO</h2>
       </div>
-      <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-    Confirmado
-  </span>-->
-    </div>
 
-    <!-- CONTENT -->
-    <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="access_time"></mat-icon>
-        <span>15/09/2024 a las 10:00</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="person"></mat-icon>
-        <span>Dr. García López</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="location_on"></mat-icon>
-        <span>Sucursal Centro</span>
-      </div>
-      <span class="inline-flex self-start items-center px-3 py-1 rounded-md
-         bg-emerald-600 text-white text-xs font-semibold
-         shadow-sm ring-1 ring-emerald-700/20">
-      Completado
-    </span>
-    </div>
-
-
-    <!-- ACTIONS -->
-    <div card-actions class="w-full flex flex-col gap-3">
-      <!-- Botón Preparación -->
-      <!--<button
-              class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
-      >
-          <span>Preparación</span>
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
           <div class="flex items-center gap-2">
-      <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        2
-      </span>
-              <mat-icon>expand_more</mat-icon>
+            <mat-icon fontIcon="access_time"></mat-icon>
+            <span>15/09/2024 a las 10:00</span>
           </div>
-      </button>-->
-      <!-- Ver Resultado -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Ver Resultado</span>
-      </button>
-
-      <!-- Descargar PDF -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Descargar PDF</span>
-      </button>
-    </div>
-
-  </app-card>
-  <app-card
-    [layout]="'column'"
-    [paddingX]="'3rem'"
-    [paddingY]="'4rem'"
-    [hovereable]="true">
-
-    <!-- HEADER -->
-    <div card-header class="w-full flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
-          <mat-icon>event</mat-icon>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="person"></mat-icon>
+            <span>Dr. García López</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <span>Sucursal Centro</span>
+          </div>
         </div>
-        <h2 class="font-semibold text-gray-800">ANÁLISIS DE SANGRE COMPLETO</h2>
+        <span class="inline-flex self-start items-center px-3 py-1 rounded-md
+         bg-emerald-600 text-white text-xs font-regul
+         shadow-sm ring-1 ring-emerald-700/20"
+        >
+          Completado
+        </span>
       </div>
-      <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-    Confirmado
-  </span>-->
-    </div>
-
-    <!-- CONTENT -->
-    <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="access_time"></mat-icon>
-        <span>15/09/2024 a las 10:00</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="person"></mat-icon>
-        <span>Dr. García López</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="location_on"></mat-icon>
-        <span>Sucursal Centro</span>
-      </div>
-      <span class="inline-flex self-start items-center px-3 py-1 rounded-md
-         bg-emerald-600 text-white text-xs font-semibold
-         shadow-sm ring-1 ring-emerald-700/20">
-      Completado
-    </span>
-    </div>
 
 
-    <!-- ACTIONS -->
-    <div card-actions class="w-full flex flex-col gap-3">
-      <!-- Botón Preparación -->
-      <!--<button
-              class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
-      >
-          <span>Preparación</span>
-          <div class="flex items-center gap-2">
-      <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        2
-      </span>
-              <mat-icon>expand_more</mat-icon>
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-col gap-3">
+        <!-- Botón Preparación -->
+        <!--<button
+                class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
+        >
+            <span>Preparación</span>
+            <div class="flex items-center gap-2">
+        <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+          2
+        </span>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+        </button>-->
+        <!-- Ver Resultado -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Ver Resultado</span>
+        </button>
+
+        <!-- Descargar PDF -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Descargar PDF</span>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>event</mat-icon>
           </div>
-      </button>-->
-      <!-- Ver Resultado -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Ver Resultado</span>
-      </button>
-
-      <!-- Descargar PDF -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Descargar PDF</span>
-      </button>
-    </div>
-
-  </app-card>
-  <app-card
-    [layout]="'column'"
-    [paddingX]="'3rem'"
-    [paddingY]="'4rem'"
-    [hovereable]="true">
-
-    <!-- HEADER -->
-    <div card-header class="w-full flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
-          <mat-icon>event</mat-icon>
+          <h2 class="text-start font-semibold text-gray-800">Análisis de sangre completo</h2>
         </div>
-        <h2 class="font-semibold text-gray-800">ANÁLISIS DE SANGRE COMPLETO</h2>
       </div>
-      <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-    Confirmado
-  </span>-->
-    </div>
 
-    <!-- CONTENT -->
-    <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="access_time"></mat-icon>
-        <span>15/09/2024 a las 10:00</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="person"></mat-icon>
-        <span>Dr. García López</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="location_on"></mat-icon>
-        <span>Sucursal Centro</span>
-      </div>
-      <span class="inline-flex self-start items-center px-3 py-1 rounded-md
-         bg-emerald-600 text-white text-xs font-semibold
-         shadow-sm ring-1 ring-emerald-700/20">
-      Completado
-    </span>
-    </div>
-
-
-    <!-- ACTIONS -->
-    <div card-actions class="w-full flex flex-col gap-3">
-      <!-- Botón Preparación -->
-      <!--<button
-              class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
-      >
-          <span>Preparación</span>
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
           <div class="flex items-center gap-2">
-      <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        2
-      </span>
-              <mat-icon>expand_more</mat-icon>
+            <mat-icon fontIcon="access_time"></mat-icon>
+            <span>15/09/2024 a las 10:00</span>
           </div>
-      </button>-->
-      <!-- Ver Resultado -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Ver Resultado</span>
-      </button>
-
-      <!-- Descargar PDF -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Descargar PDF</span>
-      </button>
-    </div>
-
-  </app-card>
-  <app-card
-    [layout]="'column'"
-    [paddingX]="'3rem'"
-    [paddingY]="'4rem'"
-    [hovereable]="true">
-
-    <!-- HEADER -->
-    <div card-header class="w-full flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
-          <mat-icon>event</mat-icon>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="person"></mat-icon>
+            <span>Dr. García López</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <span>Sucursal Centro</span>
+          </div>
         </div>
-        <h2 class="font-semibold text-gray-800">ANÁLISIS DE SANGRE COMPLETO</h2>
+        <span class="inline-flex self-start items-center px-3 py-1 rounded-md
+         bg-emerald-600 text-white text-xs font-regul
+         shadow-sm ring-1 ring-emerald-700/20"
+        >
+          Completado
+        </span>
       </div>
-      <!--<span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-    Confirmado
-  </span>-->
-    </div>
-
-    <!-- CONTENT -->
-    <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-2">
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="access_time"></mat-icon>
-        <span>15/09/2024 a las 10:00</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="person"></mat-icon>
-        <span>Dr. García López</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <mat-icon fontIcon="location_on"></mat-icon>
-        <span>Sucursal Centro</span>
-      </div>
-      <span class="inline-flex self-start items-center px-3 py-1 rounded-md
-         bg-emerald-600 text-white text-xs font-semibold
-         shadow-sm ring-1 ring-emerald-700/20">
-      Completado
-    </span>
-    </div>
 
 
-    <!-- ACTIONS -->
-    <div card-actions class="w-full flex flex-col gap-3">
-      <!-- Botón Preparación -->
-      <!--<button
-              class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
-      >
-          <span>Preparación</span>
-          <div class="flex items-center gap-2">
-      <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        2
-      </span>
-              <mat-icon>expand_more</mat-icon>
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-col gap-3">
+        <!-- Botón Preparación -->
+        <!--<button
+                class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
+        >
+            <span>Preparación</span>
+            <div class="flex items-center gap-2">
+        <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+          2
+        </span>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+        </button>-->
+        <!-- Ver Resultado -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Ver Resultado</span>
+        </button>
+
+        <!-- Descargar PDF -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Descargar PDF</span>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>event</mat-icon>
           </div>
-      </button>-->
-      <!-- Ver Resultado -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Ver Resultado</span>
-      </button>
+          <h2 class="text-start font-semibold text-gray-800">Análisis de sangre completo</h2>
+        </div>
+      </div>
 
-      <!-- Descargar PDF -->
-      <button
-        class="justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
-           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
-        <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
-        <span class="leading-none">Descargar PDF</span>
-      </button>
-    </div>
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="access_time"></mat-icon>
+            <span>15/09/2024 a las 10:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="person"></mat-icon>
+            <span>Dr. García López</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <span>Sucursal Centro</span>
+          </div>
+        </div>
+        <span class="inline-flex self-start items-center px-3 py-1 rounded-md
+         bg-emerald-600 text-white text-xs font-regul
+         shadow-sm ring-1 ring-emerald-700/20"
+        >
+          Completado
+        </span>
+      </div>
 
-  </app-card>
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-col gap-3">
+        <!-- Botón Preparación -->
+        <!--<button
+                class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
+        >
+            <span>Preparación</span>
+            <div class="flex items-center gap-2">
+        <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+          2
+        </span>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+        </button>-->
+        <!-- Ver Resultado -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Ver Resultado</span>
+        </button>
+
+        <!-- Descargar PDF -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Descargar PDF</span>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>event</mat-icon>
+          </div>
+          <h2 class="text-start font-semibold text-gray-800">Análisis de sangre completo</h2>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="access_time"></mat-icon>
+            <span>15/09/2024 a las 10:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="person"></mat-icon>
+            <span>Dr. García López</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <span>Sucursal Centro</span>
+          </div>
+        </div>
+        <span class="inline-flex self-start items-center px-3 py-1 rounded-md
+         bg-emerald-600 text-white text-xs font-regul
+         shadow-sm ring-1 ring-emerald-700/20"
+        >
+          Completado
+        </span>
+      </div>
+
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-col gap-3">
+        <!-- Botón Preparación -->
+        <!--<button
+                class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
+        >
+            <span>Preparación</span>
+            <div class="flex items-center gap-2">
+        <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+          2
+        </span>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+        </button>-->
+        <!-- Ver Resultado -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Ver Resultado</span>
+        </button>
+
+        <!-- Descargar PDF -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Descargar PDF</span>
+        </button>
+      </div>
+
+    </app-card>
+    <app-card
+      [layout]="'column'"
+      [paddingX]="'2rem'"
+      [paddingY]="'2rem'"
+      [hovereable]="false">
+
+      <!-- HEADER -->
+      <div card-header class="w-full flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex align-middle p-2 rounded-md bg-green-100 text-green-600">
+            <mat-icon>event</mat-icon>
+          </div>
+          <h2 class="text-start font-semibold text-gray-800">Análisis de sangre completo</h2>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div card-content class="w-full text-gray-700 text-sm flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="access_time"></mat-icon>
+            <span>15/09/2024 a las 10:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="person"></mat-icon>
+            <span>Dr. García López</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <span>Sucursal Centro</span>
+          </div>
+        </div>
+        <span class="inline-flex self-start items-center px-3 py-1 rounded-md
+         bg-emerald-600 text-white text-xs font-regul
+         shadow-sm ring-1 ring-emerald-700/20"
+        >
+          Completado
+        </span>
+      </div>
+
+
+      <!-- ACTIONS -->
+      <div card-actions class="w-full flex flex-col gap-3">
+        <!-- Botón Preparación -->
+        <!--<button
+                class="w-full flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2 bg-white font-semibold hover:bg-gray-50 relative"
+        >
+            <span>Preparación</span>
+            <div class="flex items-center gap-2">
+        <span class="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+          2
+        </span>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+        </button>-->
+        <!-- Ver Resultado -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="visibility" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Ver Resultado</span>
+        </button>
+
+        <!-- Descargar PDF -->
+        <button
+          class="cursor-pointer justify-center w-full flex items-center gap-3 rounded-lg border border-gray-300
+           bg-white px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50">
+          <mat-icon fontIcon="file_download" class="flex-none -mt-px"></mat-icon>
+          <span class="leading-none">Descargar PDF</span>
+        </button>
+      </div>
+
+    </app-card>
+  </div>
+
   <button
     aria-label="Ir al inicio"
     [routerLink]="['/home']"
     class="flex align-middle justify-center !fixed !bottom-[calc(1rem+env(safe-area-inset-bottom))] !right-4 !z-50
-         !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
-         focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
-    >
+       !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
+       focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
+  >
     <mat-icon>home</mat-icon>
   </button>
-</div>
+</section>

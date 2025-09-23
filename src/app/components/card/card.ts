@@ -19,4 +19,7 @@ export class Card {
   @Input() paddingY: string = "4rem";
 
   @Input('color-tailwind') colorTailwind: string = "bg-[#f7f9fa]";
+
+  @Input() marginX: string = "0px"
+  @Input() marginY: string = "0px"
 }

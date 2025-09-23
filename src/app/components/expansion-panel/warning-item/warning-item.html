@@ -1,8 +1,8 @@
 <div class="flex flex-col space-y-6">
   @for (warning of warnings; track warning) {
-    <div class="flex items-center gap-2 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-      <span class="text-yellow-600">⚠️</span>
-      <span class="text-gray-700">
+    <div class="alert-box warning">
+      <span class="icon">⚠️</span>
+      <span class="message">
         {{ warning }}
       </span>
     </div>

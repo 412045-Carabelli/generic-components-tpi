@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/butt
+import {MatButtonModule} from '@angular/material/button';
 /**
  * Generic reusable button component with customizable styles and Material Design integration
  *

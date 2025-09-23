@@ -28,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [MatButtonModule, MatIconModule],
   templateUrl: 'button.component.html',
   styleUrl: 'button.component.css',
+  standalone: true
 })
 export class ButtonComponent {
   /**
@@ -69,7 +70,10 @@ export class ButtonComponent {
    * Each type corresponds to a predefined background color in the CSS
    * @default 'white'
    */
-  @Input() type: 'white' | 'primary' | 'secondary' | 'warning' | 'danger' = 'white';
+  @Input() type: 'white' |
+    'primary' | 'primary-700' |
+    'secondary' | 'accent' |
+    'state-warn' | 'state-success' = 'white';
 
   /**
    * Controls whether the button is disabled and non-interactive
@@ -93,7 +97,7 @@ export class ButtonComponent {
   @Input() txtSize: string = 'large';
 
   /**
-   * Optional input used to determinate the background color of the button
+   * Optional input used to determinate the background color of the button, it's recommended use the "type" input instead of this one
    */
   @Input() bgColor?: string;
   /**

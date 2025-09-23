@@ -28,11 +28,12 @@
   >
   </app-card>
   <app-card class="app-body cursor-pointer"
+            [class.offline]="!isOnline"
             [layout]="'row'"
             [paddingX]="'2rem'"
             [paddingY]="'2rem'"
             [hovereable]="true"
-            (click)="redirect('/appointments')"
+            (click)="isOnline && redirect('/appointments')"
   >
 
     <!-- HEADER (icono a la izquierda) -->

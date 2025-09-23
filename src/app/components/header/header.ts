@@ -9,7 +9,6 @@ import {ButtonComponent} from '../button/button.component';
   imports: [
     MatIconModule,
     NgOptimizedImage,
-    ButtonComponent
   ],
   templateUrl: './header.html',
   styleUrl: './header.css'

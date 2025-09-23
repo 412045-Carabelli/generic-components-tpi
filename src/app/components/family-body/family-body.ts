@@ -47,12 +47,12 @@ export class FamilyBody {
     headerBackgroundColor: '#00BBB0', // blue header bar
     buttons: [{
       component: ButtonComponent,
-      inputs: { text: 'Cancelar',  bgColor: '#dd2e2e', txtColor: '#ffffff', xPad: '10px', yPad: '4px' },
+      inputs: { text: 'Cancelar', bgType: 'state-warn', width: "110%", xPad: '10px', yPad: '4px' },
       outputs: { clicked: () => this.onButton('close') }
     },
       {
         component: ButtonComponent,
-        inputs: { text: 'Agregar', bgColor: 'rgba(58,193,67,0.78)', txtColor: '#fff', xPad: '10px', yPad: '4px' },
+        inputs: { text: 'Agregar', bgType: 'state-success', width: "110%", xPad: '10px', yPad: '4px' },
         outputs: { clicked: () => this.onButton('save') }
       }],
   }

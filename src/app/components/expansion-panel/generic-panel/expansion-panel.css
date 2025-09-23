@@ -6,3 +6,60 @@
   background-color: #f97316;
   color: white;
 }
+
+.accordion {
+  width: 100%; /* w-full */
+}
+
+.panel {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  border-radius: 1rem; /* rounded-2xl */
+  border: 1px solid #e5e7eb; /* border border-gray-200 */
+}
+
+.panel-header {
+  padding-left: 1rem;  /* px-4 */
+  padding-right: 1rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.panel-title {
+  font-size: 1rem; /* text-base */
+  font-weight: 600; /* font-semibold */
+  color: #1f2937; /* text-gray-800 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.panel-description {
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+}
+
+.arrow {
+  transition: transform 0.3s ease; /* transition-transform duration-300 */
+  color: #6b7280; /* text-gray-500 */
+}
+
+.arrow.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.panel-body {
+  padding: 1rem; /* p-4 */
+  font-size: 0.875rem; /* text-sm */
+  color: #374151; /* text-gray-700 */
+}
+
+.panel-body > * + * {
+  margin-top: 1rem; /* space-y-4 */
+}

@@ -1,57 +1,154 @@
+/* ============================================================
+   GENERIC FORM – ESTILOS 100% ENCAPSULADOS EN EL COMPONENTE
+   No requiere styles globales. Usa ::ng-deep solo para partes
+   internas de Angular Material (MDC) y overlays del datepicker.
+   ============================================================ */
+
 :host {
   display: block;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  /* 🎨 PALETA local (modificá acá los colores del componente) */
+  --field-bg:       #e9ecf3;   /* fondo inputs (fill) */
+  --field-bg-focus: #eef3f8;   /* fondo en foco */
+  --field-label:    #344054;   /* color del label */
+  --field-ring:     #8fd9c8;   /* aro/foco pastel */
+
+  --btn-bg:         #8fd9c8;   /* submit */
+  --btn-bg-hover:   #7bc8b6;   /* submit hover */
+  --btn-outline:    #2b5f56;   /* cancelar: borde/texto */
 }
 
-/* Tarjeta contenedora (card) */
+/* ---------- Card / layout ---------- */
 .gf-card {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   padding: 20px 16px;
-  max-width: 420px;        /* mobile-first: 1 columna */
+  max-width: 420px;
   margin-inline: auto;
 }
 
-/* Título proyectado (slot [gf-title]) */
-.gf-title-slot {
-  text-align: center;
-  margin: 0 0 12px 0;
-}
-.gf-title-slot .gf-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0;
-  color: #1f1f1f;
-}
+.gf-title-slot { text-align: center; margin: 0 0 12px 0; }
+.gf-title-slot .gf-title { font-size: 20px; font-weight: 700; margin: 0; color: #1f1f1f; }
 
-/* Grid del formulario: 1 columna en mobile */
-.gf-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
+.gf-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .w-full { width: 100%; }
 
-/* Mensaje de error compacto */
-mat-error {
-  font-size: 12px;
-  margin-top: 2px;
-  color: #d93025;
-}
+mat-error { font-size: 12px; margin-top: 2px; color: #d93025; }
 
-/* Acciones: centradas, look pill en botones (colores están en styles.scss) */
 .gf-actions {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  display: flex; justify-content: center; gap: 12px; margin-top: 16px;
 }
 .gf-actions .mat-mdc-unelevated-button,
 .gf-actions .mat-mdc-outlined-button {
+  border-radius: 999px; padding: 8px 18px; font-weight: 500;
+}
+
+/* ---------- Inputs “fill” (MDC tokens) ---------- */
+/* Seteamos tokens en el contenedor del form-field (NO global) */
+.mat-mdc-form-field.mat-mdc-form-field-appearance-fill {
+  --mdc-filled-text-field-container-color: var(--field-bg);
+  --mdc-filled-text-field-active-indicator-color: transparent;
+  --mdc-filled-text-field-hover-active-indicator-color: transparent;
+  --mdc-filled-text-field-focus-active-indicator-color: transparent;
+}
+
+/* Reglas internas de MDC: usamos ::ng-deep para alcanzarlas
+   pero quedan “acotadas” a este componente por el :host */
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled {
+  background-color: var(--field-bg) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.03);
+}
+
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-floating-label {
+  color: var(--field-label) !important;
+  font-weight: 600;
+}
+
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mat-mdc-form-field-infix {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field__input,
+:host ::ng-deep .mat-mdc-form-field-appearance-fill textarea.mdc-text-field__input {
+  padding: 0 14px !important;
+}
+
+:host ::ng-deep textarea.mdc-text-field__input {
+  min-height: 88px;
+  resize: vertical;
+}
+
+/* Línea inferior sutil y foco con aro pastel */
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-line-ripple { display: none !important; }
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled { position: relative; }
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled::after {
+  content: "";
+  position: absolute; left: 12px; right: 12px; bottom: -10px; height: 1px;
+  background: #cfd6de; border-radius: 1px;
+}
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled.mdc-text-field--focused {
+  background-color: var(--field-bg-focus) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,.05),
+    0 0 0 3px color-mix(in srgb, var(--field-ring) 28%, transparent);
+}
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled.mdc-text-field--focused::after {
+  background: var(--field-ring); height: 2px;
+}
+
+/* ---------- Datepicker (overlay) ---------- */
+/* El overlay se monta fuera del árbol del componente, por eso ::ng-deep */
+:host ::ng-deep .mat-datepicker-content {
+  border-radius: 12px !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+}
+:host ::ng-deep .mat-calendar-body-selected {
+  background-color: var(--btn-bg) !important;
+  color: #fff !important;
+}
+:host ::ng-deep .mat-calendar-body-cell:hover .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+  background-color: color-mix(in srgb, var(--btn-bg) 18%, transparent) !important;
   border-radius: 999px;
-  padding: 8px 18px;
-  font-weight: 500;
+}
+:host ::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: color-mix(in srgb, var(--btn-bg) 50%, transparent) !important;
+}
+
+/* ---------- Botones pastel (scoped) ---------- */
+.btn-primary.mat-mdc-unelevated-button {
+  /* Tokens */
+  --mdc-filled-button-container-color: var(--btn-bg);
+  --mdc-filled-button-label-text-color: #fff;
+  --mdc-filled-button-hover-state-layer-color: var(--btn-bg-hover);
+  --mdc-filled-button-pressed-state-layer-color: var(--btn-bg-hover);
+  --mdc-filled-button-disabled-container-color: var(--btn-bg);
+  --mdc-filled-button-disabled-label-text-color: rgba(255,255,255,.65);
+
+  /* Fallback directo */
+  background-color: var(--btn-bg) !important;
+  color: #fff !important;
+}
+.btn-primary.mat-mdc-unelevated-button:hover:not(:disabled) {
+  background-color: var(--btn-bg-hover) !important;
+}
+.btn-primary.mat-mdc-unelevated-button:disabled {
+  background-color: var(--btn-bg) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.btn-cancel.mat-mdc-outlined-button {
+  --mdc-outlined-button-outline-color: var(--btn-outline);
+  --mdc-outlined-button-label-text-color: var(--btn-outline);
+
+  border-color: var(--btn-outline) !important;
+  color: var(--btn-outline) !important;
+  border-width: 1.5px;
+}
+.btn-cancel.mat-mdc-outlined-button:hover {
+  background-color: color-mix(in srgb, var(--btn-bg) 12%, transparent);
 }

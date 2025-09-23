@@ -10,17 +10,25 @@ button {
 }
 
 .primary {
-  background-color: rgb(7, 8, 255);
+  background-color: var(--brand-primary);
+}
+
+.primary-700 {
+  background-color: var(--brand-primary-700);
 }
 
 .secondary {
-  background-color: rgb(39, 255, 54);
+  background-color: var(--brand-secondary);
 }
 
-.warning {
-  background-color: rgb(255, 245, 45);
+.accent {
+  background-color: var(--brand-accent);
 }
 
-.danger {
-  background-color: rgb(255, 23, 60);
+.state-warn {
+  background-color: var(--brand-warn);
+}
+
+.state-success {
+  background-color: var(--brand-success);
 }

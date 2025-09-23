@@ -1,54 +1,101 @@
 <div class="w-full">
-  <!-- Header -->
-  <div
-    class="flex justify-between items-center px-5 py-3 bg-[#00BBB0] text-white cursor-pointer"
-    (click)="isOpen = !isOpen"
-  >
-    <div class="flex items-center gap-3 p-3">
-      <img ngSrc="assets/logo.png" alt="logo" class="w-8 h-11" height="289" width="198"/>
-      <span class="font-semibold leading-tight text-left flex align-bottom">
-        LABORATORIO <br> CASTILLO CHIDIAK
-      </span>
+  <div class="md:hidden">
+    <!-- Header móvil -->
+    <div
+      class="flex justify-between items-center px-5 py-3 bg-[#00BBB0] text-white cursor-pointer"
+      (click)="isOpen = !isOpen"
+    >
+      <div class="flex items-center gap-3 p-3">
+        <img ngSrc="assets/logo.png" alt="logo" class="w-8 h-11" height="289" width="198"/>
+        <span class="font-semibold leading-tight text-left flex align-bottom">
+          LABORATORIO <br> CASTILLO CHIDIAK
+        </span>
+      </div>
+
+      <div class="flex align-middle px-5">
+        <mat-icon>{{ isOpen ? 'expand_less' : 'person' }}</mat-icon>
+      </div>
     </div>
 
-    <div class="flex align-middle px-5">
-      <mat-icon>{{ isOpen ? 'expand_less' : 'person' }}</mat-icon>
-    </div>
+    <!-- Contenido desplegable -->
+    @if (isOpen) {
+      <div
+        class="bg-[#00BBB0] text-white p-4 space-y-4
+               transition-all duration-300 ease-in-out
+               transform -translate-y-2 opacity-0
+               animate-fadeIn"
+      >
+        <!-- Usuario -->
+        <div class="flex justify-between items-center bg-[#00BBB0] border border-white rounded-lg p-2">
+          <div class="text-left">
+            <p class="font-semibold">SANCHEZ MARIA ELENA</p>
+            <p class="text-sm">12438548</p>
+          </div>
+          <div class="bg-teal-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+            SM
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="flex flex-row gap-2">
+          <button
+            class="w-full flex-[2] bg-[#F0713B] text-white font-semibold py-2 rounded-lg"
+          >
+            CERRAR SESION
+          </button>
+          <button
+            (click)="donwload()"
+            class="w-full bg-amber-400 flex-[1] text-white font-semibold py-2 rounded-lg flex justify-center"
+          >
+            <mat-icon>download</mat-icon>
+          </button>
+        </div>
+      </div>
+    }
   </div>
 
-  <!-- Contenido desplegable -->
-  @if (isOpen) {
-    <div
-      class="bg-[#00BBB0] text-white p-4 space-y-4
-             transition-all duration-300 ease-in-out
-             transform -translate-y-2 opacity-0
-             animate-fadeIn"
-    >
-      <!-- Usuario -->
-      <div class="flex justify-between items-center bg-[#00BBB0] border border-white rounded-lg p-2">
-        <div class="text-left">
-          <p class="font-semibold">SANCHEZ MARIA ELENA</p>
-          <p class="text-sm">12438548</p>
+  <div class="hidden md:flex justify-between items-center bg-[#00BBB0] text-white px-5 py-3">
+    <div class="flex items-center gap-3">
+      <img ngSrc="assets/logo.png" alt="logo" class="w-8 h-11" height="289" width="198"/>
+      <span class="font-semibold text-lg">LABORATORIO CASTILLO CHIDIAK</span>
+    </div>
+
+    <div class="flex gap-6 items-center relative px-1 py-2 rounded-md">
+      <div class="flex cursor-pointer justify-between items-center gap-5 rounded-lg p-2" (click)="isOpen = !isOpen">
+        <div class="text-left flex flex-col gap-0.5">
+          <p class="text-sm font-semibold">SANCHEZ MARIA ELENA</p>
+          <p class="text-xs"><span>DNI:</span> 12438548</p>
         </div>
         <div class="bg-teal-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
           SM
         </div>
       </div>
+      @if (isOpen) {
+        <div
+          class="absolute w-full flex flex-col gap-3 top-17 bg-[#00BBB0] rounded-b-lg shadow-lg z-50 animate-fadeOut animate-fadeIn p-3"
+        >
+          <button
+            class="w-full text-left p-3 text-white-700 cursor-pointer rounded-md hover:bg-[#009999] flex items-center gap-2"
+          >
+            <mat-icon>account_circle</mat-icon>
+            Perfil
+          </button>
 
-      <!-- Botón cerrar sesión -->
-      <div class="flex flex-row gap-2 2fr">
-        <button
-          class="w-full flex-[2] bg-[#F0713B] text-white font-semibold py-2 rounded-lg"
-        >
-          CERRAR SESION
-        </button>
-        <button
-          (click)="donwload()"
-          class="w-full bg-amber-400 flex-[1] text-white font-semibold py-2 rounded-lg 1fr flex justify-center"
-        >
-          <mat-icon>download</mat-icon>
-        </button>
-      </div>
+          <button
+            class="w-full text-left p-3 text-white-700 cursor-pointer rounded-md hover:bg-[#009999] flex items-center gap-2"
+          >
+            <mat-icon>download</mat-icon>
+            Descargar WebApp
+          </button>
+
+          <button
+            class="w-full text-left p-3 text-white-700 cursor-pointer rounded-md hover:bg-[#FF6F61] flex items-center gap-2"
+          >
+            <mat-icon>logout</mat-icon>
+            Cerrar sesión
+          </button>
+        </div>
+      }
     </div>
-  }
+  </div>
 </div>

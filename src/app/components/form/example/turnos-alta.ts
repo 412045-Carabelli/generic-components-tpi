@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormConfig, GenericForm} from '../generic-form/generic-form';
+import { FormConfig } from '../generic-form/generic-form';
+import { GenericForm } from '../generic-form/generic-form';
 
 /* Importamos el componente standalone para poder usar su selector en el HTML */
 
@@ -11,7 +12,7 @@ import {FormConfig, GenericForm} from '../generic-form/generic-form';
   templateUrl: './turnos-alta.html',
   styleUrls: ['./turnos-alta.scss'],
 })
-export class TurnosAltaComponent {
+export class TurnosAlta {
   /** Config del formulario de "Alta de turno" */
   config: FormConfig = {
     submitText: 'Crear turno',

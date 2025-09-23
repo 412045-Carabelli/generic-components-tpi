@@ -1,10 +1,24 @@
-<div (click)="buttonClickEvent()" [style]="implContainerStyles()">
-  <button [class]="type" mat-stroked-button
+<div (click)="buttonClickEvent()" class="button-container" [style]="implContainerStyles()">
+  <button [class]="bgType"
+          mat-stroked-button
           [style]="implButtonStyles()"
-          [disabled]="disable">
-    @if (icon) {
-      <mat-icon>{{icon}}</mat-icon>
+          [disabled]="disable || loading">
+
+    @if (loading) {
+      <div class="content-container" [class.reverse]="iconPosition === 'right'">
+        <!-- Loading icon with rotation animation -->
+        <mat-icon class="loading-icon" [style]="implIconStyles()">{{displayIcon}}</mat-icon>
+        <span class="button-text">{{displayText}}</span>
+      </div>
     }
-    <span>{{text}}</span>
+    @else if (displayIcon) {
+      <div class="content-container" [class.reverse]="iconPosition === 'right'">
+        <mat-icon [style]="implIconStyles()">{{displayIcon}}</mat-icon>
+        <span class="button-text">{{displayText}}</span>
+      </div>
+    }
+    @else {
+      <span class="button-text">{{displayText}}</span>
+    }
   </button>
 </div>

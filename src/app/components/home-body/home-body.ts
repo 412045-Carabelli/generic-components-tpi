@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatIcon} from '@angular/material/icon';
 import {Card} from '../card/card';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-home-body',
@@ -16,4 +16,9 @@ import {RouterLink} from '@angular/router';
 export class HomeBody {
   gap: "sm" | "md" | "lg" = "md";
 
+  constructor(private router: Router) {}
+
+  public redirect(route:string) {
+    this.router.navigate([route]);
+  }
 }

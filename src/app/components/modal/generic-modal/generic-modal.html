@@ -1,4 +1,4 @@
-<div class="flex flex-col">
+<div class="flex flex-col"> 
 
   <div class="px-5 py-5 flex flex-row text-center items-center gap-2"
       [style.color]="headerColor"
@@ -12,7 +12,8 @@
                       [style.background]="bgColor"
                       [style.padding.px]="padPx">
 
-    <ng-container *ngComponentOutlet="contentCmp"></ng-container>
+    <!-- AHORA con inputs opcionales para el contenido -->
+    <ng-container *ngComponentOutlet="contentCmp; inputs: contentInputs"></ng-container>
 
     @if (buttons.length) {
       <mat-divider class="divider" />

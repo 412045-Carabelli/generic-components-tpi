@@ -152,3 +152,87 @@ mat-error { font-size: 12px; margin-top: 2px; color: #d93025; }
 .btn-cancel.mat-mdc-outlined-button:hover {
   background-color: color-mix(in srgb, var(--btn-bg) 12%, transparent);
 }
+
+
+
+
+/* ====== Tono de foco/activo a juego con el botón ====== */
+/* Muchos componentes MDC leen --mdc-theme-primary */
+:host {
+  --mdc-theme-primary: var(--btn-bg); /* usa tu color pastel */
+}
+
+/* Label cuando el campo está en foco */
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--focused .mdc-floating-label {
+  color: var(--btn-bg) !important;
+}
+
+/* Línea/“ripple” inferior cuando está en foco (ya tenías un aro pastel;
+   lo igualamos al botón para unificar) */
+:host ::ng-deep .mat-mdc-form-field-appearance-fill .mdc-text-field--filled.mdc-text-field--focused::after {
+  background: var(--btn-bg) !important;
+  height: 2px;
+}
+
+/* Icono flecha del mat-select con tu color */
+:host ::ng-deep .mat-mdc-select-arrow svg {
+  fill: var(--btn-bg) !important;
+}
+
+/* Color del texto seleccionado y el check en el panel del select */
+:host ::ng-deep .mat-mdc-option.mdc-list-item--selected,
+:host ::ng-deep .mat-mdc-option.mdc-list-item--selected .mdc-list-item__primary-text {
+  color: var(--btn-bg) !important;
+}
+:host ::ng-deep .mat-mdc-option .mdc-list-item__end {
+  color: var(--btn-bg) !important; /* check de selección */
+}
+
+/* (Opcional) color de hover/active en el panel del select */
+:host ::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled),
+:host ::ng-deep .mat-mdc-option.mat-mdc-option-active {
+  background: color-mix(in srgb, var(--btn-bg) 12%, transparent) !important;
+}
+
+
+
+/* Evitar que el texto del botón se parta en dos líneas */
+.btn-primary.mat-mdc-unelevated-button,
+.btn-cancel.mat-mdc-outlined-button {
+  white-space: nowrap;   /* Mantener en una sola línea */
+  min-width: 120px;      /* Fuerza un ancho mínimo */
+  text-align: center;    /* Centrado */
+}
+
+
+
+
+/* ===== Footer de acciones responsable (sin overflow en mobile) ===== */
+.gf-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;         /* 👉 permite bajar a 2 líneas en pantallas angostas */
+  width: 100%;
+}
+
+/* Evitar que el texto se parta, pero sin forzar anchos grandes */
+.gf-actions .mat-mdc-unelevated-button,
+.gf-actions .mat-mdc-outlined-button {
+  white-space: nowrap;     /* "Crear turno" en 1 línea */
+  flex: 1 1 0;             /*  -> que se achiquen antes de provocar scroll */
+  min-width: 0;            /*  -> clave para que puedan encoger en flex */
+  text-align: center;
+  max-width: 240px;        /* límite razonable para que no desborden */
+}
+
+/* En pantallas muy chicas, que cada botón ocupe toda la fila */
+@media (max-width: 480px) {
+  .gf-actions .mat-mdc-unelevated-button,
+  .gf-actions .mat-mdc-outlined-button {
+    width: 100%;
+    max-width: none;
+  }
+}

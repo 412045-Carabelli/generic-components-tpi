@@ -1,12 +1,14 @@
-import {Component, inject} from '@angular/core';
-import {Header} from '../header/header';
-import {Card} from '../card/card';
-import {Router} from '@angular/router';
-import {MatIcon} from '@angular/material/icon';
-import {ButtonComponent} from '../button/button.component';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
+import { Card } from '../card/card';
+import { ButtonComponent } from '../button/button.component';
+
+import { MatDialog } from '@angular/material/dialog';
+import { GenericModal } from '../modal/generic-modal/generic-modal';
+import { GenericForm, FormConfig } from '../form/generic-form/generic-form';
 import {ExpansionPanel} from '../expansion-panel/generic-panel/expansion-panel';
 import {WarningItem} from '../expansion-panel/warning-item/warning-item';
-
 
 type EstadoTurno = 'Confirmado' | 'Pendiente' | 'Cancelado';
 
@@ -23,19 +25,16 @@ interface Turno {
 
 @Component({
   selector: 'app-appointments-body',
-  imports: [
-    ButtonComponent,
-    Card,
-    MatIcon,
+  standalone: true,
+  imports: [ButtonComponent, Card, MatIcon,
     ExpansionPanel,
-    WarningItem
-  ],
+    WarningItem],
   templateUrl: './appointments-body.html',
   styleUrl: './appointments-body.css'
 })
 export class AppointmentsBody {
   private router = inject(Router);
-
+  private dialog = inject(MatDialog);
 
   paciente = { nombre: 'SANCHEZ MARIA ELENA', rol: 'Paciente' };
 
@@ -67,13 +66,56 @@ export class AppointmentsBody {
     return parts.map(p => p[0]).join('').toUpperCase();
   }
 
-  solicitarNuevoTurno() {
+  // Placeholder hasta que me pases el FormConfig definitivo
+  private nuevoTurnoFormConfig: FormConfig = {
+    submitText: 'Crear turno',
+    fields: [
+      { key: 'paciente', type: 'text', label: 'Paciente', required: true, placeholder: 'Nombre y apellido' },
+      {
+        key: 'estudio', type: 'select', label: 'Estudio', required: true,
+        options: [
+          { value: 'sangre', label: 'Análisis de Sangre' },
+          { value: 'orina',  label: 'Análisis de Orina'  }
+        ]
+      },
+      { key: 'fecha', type: 'date', label: 'Fecha', required: true, placeholder: 'dd/mm/yyyy' },
+      { key: 'hora',  type: 'time', label: 'Hora',  required: true },
+      {
+        key: 'sede',  type: 'select', label: 'Sede',  required: true,
+        options: [
+          { value: 'Centro', label: 'Sucursal Centro' },
+          { value: 'Norte',  label: 'Sucursal Norte'  }
+        ]
+      },
+      { key: 'observaciones', type: 'textarea', label: 'Observaciones' }
+    ]
+  };
 
-    this.router.navigateByUrl('/turnos/nuevo');
+  solicitarNuevoTurno() {
+    this.dialog.open(GenericModal, {
+      width: '720px',
+      data: {
+        properties: {
+          headerText: 'Solicitar nuevo turno',
+          headerColor: '#ffffff',
+          headerBackgroundColor: '#169b8e',
+          edgeRound: 16,
+          color: '#ffffff',
+          padding: 20,
+          // Contenido: tu GenericForm
+          content: GenericForm,
+          // Inputs del contenido (FormConfig + valores iniciales)
+          contentInputs: {
+            config: this.nuevoTurnoFormConfig,
+            value: { observaciones: '' }
+          }
+          // IMPORTANTE: sin "buttons" -> NO aparece el footer del modal
+        }
+      }
+    });
   }
 
   modificarTurno(id: string) {
-
     this.router.navigate(['/turnos', id, 'editar']);
   }
 
@@ -81,4 +123,3 @@ export class AppointmentsBody {
     this.router.navigate([route]);
   }
 }
-

@@ -1,3 +1,10 @@
+import { Component, EventEmitter, inject, Output, Type, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgComponentOutlet } from '@angular/common';
+
 export interface DialogProperties {
   content: any;
   padding?: number;
@@ -7,6 +14,8 @@ export interface DialogProperties {
   headerColor?: string;
   headerBackgroundColor?: string;
   font?: FontFace;
+  // 👇 Campo opcional y retrocompatible
+  contentInputs?: Record<string, any>;
 }
 
 export type DynDef = {
@@ -14,12 +23,6 @@ export type DynDef = {
   inputs?: Record<string, any>;
   outputs?: Record<string, (e: any) => void>;
 };
-import { Component, EventEmitter, inject, Output, Type, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { NgComponentOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-generic-modal',
@@ -34,7 +37,6 @@ export class GenericModal implements OnInit {
   @Output() responseSent = new EventEmitter<number>();
 
   ngOnInit() {
-    // Apply CSS vars to the container element so edgeRound affects the panel
     const container = document.querySelector('mat-dialog-container') as HTMLElement;
     if (container) {
       container.style.setProperty('--dialog-radius', `${this.data?.properties?.edgeRound ?? 8}px`);
@@ -69,6 +71,11 @@ export class GenericModal implements OnInit {
 
   get contentCmp(): any {
     return this.data?.properties?.content;
+  }
+
+  // NUEVO: inputs para el componente contenido (p. ej. { config, value })
+  get contentInputs(): Record<string, any> | undefined {
+    return this.data?.properties?.contentInputs;
   }
 
   get buttons(): any[] {

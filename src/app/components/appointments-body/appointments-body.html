@@ -122,14 +122,12 @@
 
 </main>
 
-<footer class="footer fixed left-0 right-0 bottom-0 px-4 py-3">
-  <app-button
-    text="Volver al Inicio"
-    type="primary"
-    width="100%"
-    height="56px"
-    [bgColor]="'#0f9d8a'"
-    [txtColor]="'#ffffff'"
-    (clicked)="volverInicio()"
-  ></app-button>
-</footer>
+<button
+  aria-label="Ir al inicio"
+  (click)="redirect('/home')"
+  class="flex align-middle justify-center !fixed !bottom-[calc(1rem+env(safe-area-inset-bottom))] !right-4 !z-50
+       !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
+       focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
+>
+  <mat-icon>home</mat-icon>
+</button>

@@ -77,8 +77,8 @@ export class AppointmentsBody {
     this.router.navigate(['/turnos', id, 'editar']);
   }
 
-  volverInicio() {
-    this.router.navigateByUrl('/home');
+  public redirect(route:string) {
+    this.router.navigate([route]);
   }
 }
 

@@ -1,6 +1,7 @@
 import {MatIcon} from '@angular/material/icon';
 import {Card} from '../card/card';
 import {Router, RouterLink} from '@angular/router';
+import { IconComponent } from '../icon/icon.component';
 import {Component, HostListener, inject, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
@@ -8,7 +9,8 @@ import {Component, HostListener, inject, OnDestroy, OnInit} from '@angular/core'
   imports: [
     MatIcon,
     Card,
-    RouterLink
+    RouterLink,
+    IconComponent
   ],
   templateUrl: './home-body.html',
   styleUrl: './home-body.css'

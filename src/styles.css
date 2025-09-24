@@ -1,21 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-
-
 @tailwind utilities;
+
+/* ======================================================
+   Angular Material theme (prebuilt) + overlays on top
+   - Si ya tenés un theme custom, quitá la línea del prebuilt
+   ====================================================== */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Hacemos que los overlays (select/datepicker) queden por encima del diálogo */
+.cdk-overlay-container {
+  z-index: 10000; /* suficiente para estar arriba del mat-dialog */
+}
+
+/* (Opcional, solo si algo insiste en taparlos)
+.cdk-overlay-pane { z-index: 10001; }
+*/
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeIn {
@@ -63,3 +70,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --brand-ig-stop-5: #515BD4;
   --brand-ig-gradient: linear-gradient(45deg, var(--brand-ig-stop-1), var(--brand-ig-stop-2), var(--brand-ig-stop-3), var(--brand-ig-stop-4), var(--brand-ig-stop-5));
 }
+
+
+
+/* ==========================
+   Snackbar de éxito (global)
+   panelClass: 'snack-success'
+   ========================== */
+
+/* Snackbar de éxito (verde corporativo) */
+.mat-mdc-snack-bar-container.snack-success {
+  --mdc-snackbar-container-color: var(--brand-success); /* 👈 usa el verde #2E7D32 */
+  --mdc-snackbar-supporting-text-color: #fff;
+  --mdc-snackbar-button-color: #fff;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+/* Fallback duro si el prebuilt pisa las vars */
+.mat-mdc-snack-bar-container.snack-success .mdc-snackbar__surface {
+  background: var(--brand-success) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+.mat-mdc-snack-bar-container.snack-success .mdc-snackbar__label,
+.mat-mdc-snack-bar-container.snack-success .mdc-button__label {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+

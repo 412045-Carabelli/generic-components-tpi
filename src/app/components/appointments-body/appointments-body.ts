@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {ButtonComponent} from '../button/button.component';
 import {ExpansionPanel} from '../expansion-panel/generic-panel/expansion-panel';
+import {WarningItem} from '../expansion-panel/warning-item/warning-item';
 
 
 type EstadoTurno = 'Confirmado' | 'Pendiente' | 'Cancelado';
@@ -26,7 +27,8 @@ interface Turno {
     ButtonComponent,
     Card,
     MatIcon,
-    ExpansionPanel
+    ExpansionPanel,
+    WarningItem
   ],
   templateUrl: './appointments-body.html',
   styleUrl: './appointments-body.css'

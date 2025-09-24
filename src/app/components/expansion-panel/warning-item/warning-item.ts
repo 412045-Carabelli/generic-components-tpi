@@ -9,5 +9,7 @@ import { MatBadgeModule } from '@angular/material/badge';
   styleUrl: './warning-item.css'
 })
 export class WarningItem {
+
+  /*Array de strings que es recorrido para generar elementos de alerta*/
   @Input() warnings: string[] = [];
 }

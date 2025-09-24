@@ -60,7 +60,7 @@
           <div class="flex-1">
             <h2 class="text-xl font-extrabold text-gray-900">{{ t.estudio }}</h2>
 
-            <div class="mt-2 flex items-center gap-2 text-gray-700 mt-4">
+            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
               <mat-icon class="text-base">schedule</mat-icon>
               <span>{{ t.fecha }} a las {{ t.hora }}</span>
             </div>
@@ -91,11 +91,10 @@
           @if (t.advertencias?.length){
             <div style="width: 70%; margin: 0 auto; padding-bottom: 2rem" >
               <app-expansion-panel title="Preparación" [badge]="t.advertencias?.length">
-            @for (adv of t.advertencias; track $index){
+                @if (t.advertencias){
+                <app-warning-item [warnings]="t.advertencias"></app-warning-item>
+                }
 
-                <ul>⚠️ {{adv}}</ul>
-
-            }
               </app-expansion-panel>
             </div>
           }

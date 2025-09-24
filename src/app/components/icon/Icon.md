@@ -1,24 +1,35 @@
-# IconComponent
+# Componente Icon
 
-Componente Angular para mostrar íconos personalizables.
+## Descripción
+Componente genérico de Angular para mostrar íconos con diferentes tamaños, colores y estilos de fondo. Utiliza proyección de contenido (`ng-content`) para renderizar cualquier tipo de ícono.
 
-## Propiedades
-
-- `iconSize`: Tamaño del ícono. Valores posibles: `sm`, `md`, `lg`, `xl`. Valor por defecto: `md`.
-- `backgroundColor`: Color de fondo del ícono. Valor por defecto: `transparent`.
-- `iconColor`: Color del ícono. Valor por defecto: `white`.
-- `borderRadius`: Radio de borde del ícono. Valor por defecto: `.5rem`.
-- `margin`: Margen alrededor del ícono. Valor por defecto: `4px`.
-
-## Uso
-
+## Uso Básico
 ```html
-<app-icon
-  [iconSize]="'lg'"
-  [backgroundColor]="'#f0f0f0'"
-  [iconColor]="'#333'"
-  [borderRadius]="'1rem'"
-  [margin]="'8px'"
->
-  <mat-icon>menu</mat-icon>
+<!-- Ícono básico -->
+<app-icon>
+  <i class="fas fa-home"></i>
 </app-icon>
+
+<!-- Ícono con tamaño personalizado -->
+<app-icon iconSize="lg">
+  <svg>...</svg>
+</app-icon>
+
+<!-- Ícono con fondo y colores personalizados -->
+<app-icon 
+  iconSize="xl"
+  backgroundColor="#007bff"
+  iconColor="white"
+  borderRadius="50%">
+  <i class="material-icons">favorite</i>
+</app-icon>
+```
+
+## Propiedades (inputs)
+| Propiedad | Tipo | Valor por defecto | Descripción |
+|-----------|------|-------------------|-------------|
+| iconSize | 'sm', 'md', 'lg, 'xl' | 'md' | Tamaño del ícono |
+| backgroundColor | string | 'transparent' | Color de fondo del contenedor | 
+| iconColor | string | 'white' | Color del ícono | 
+| borderRadius | string | '.5rem' | Radio del borde |
+| margin | string | '4px' | Margen exterior |

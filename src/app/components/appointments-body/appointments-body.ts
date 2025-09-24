@@ -7,6 +7,8 @@ import { ButtonComponent } from '../button/button.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GenericModal } from '../modal/generic-modal/generic-modal';
 import { GenericForm, FormConfig } from '../form/generic-form/generic-form';
+import {ExpansionPanel} from '../expansion-panel/generic-panel/expansion-panel';
+import {WarningItem} from '../expansion-panel/warning-item/warning-item';
 
 type EstadoTurno = 'Confirmado' | 'Pendiente' | 'Cancelado';
 
@@ -24,7 +26,9 @@ interface Turno {
 @Component({
   selector: 'app-appointments-body',
   standalone: true,
-  imports: [ButtonComponent, Card, MatIcon],
+  imports: [ButtonComponent, Card, MatIcon,
+    ExpansionPanel,
+    WarningItem],
   templateUrl: './appointments-body.html',
   styleUrl: './appointments-body.css'
 })
@@ -115,7 +119,7 @@ export class AppointmentsBody {
     this.router.navigate(['/turnos', id, 'editar']);
   }
 
-  volverInicio() {
-    this.router.navigateByUrl('/home');
+  public redirect(route:string) {
+    this.router.navigate([route]);
   }
 }

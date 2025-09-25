@@ -3,6 +3,7 @@ import {MatIcon} from '@angular/material/icon';
 import {Card} from '../card/card';
 import {Router, RouterLink} from '@angular/router';
 import { IconComponent } from '../icon/icon.component';
+import {ButtonComponent} from '../button/button.component';
 
 @Component({
   selector: 'app-home-body',
@@ -10,7 +11,8 @@ import { IconComponent } from '../icon/icon.component';
     MatIcon,
     Card,
     RouterLink,
-    IconComponent
+    IconComponent,
+    ButtonComponent
   ],
   templateUrl: './home-body.html',
   styleUrl: './home-body.css'
@@ -66,4 +68,11 @@ export class HomeBody {
   //     this.isOnline = false;
   //   }
   // }
+
+  sendToWhatsApp(message: string): void {
+    const phoneNumber = "5551234567"; // Cambiá por el número del restaurante
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  }
+
 }

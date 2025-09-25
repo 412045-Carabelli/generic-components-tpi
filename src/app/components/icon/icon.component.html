@@ -8,7 +8,9 @@
     [style.background-color]="backgroundColor"
     [style.border-radius]="borderRadius"
     [style.margin]="margin"
-    [style.box-shadow]="backgroundColor === 'transparent' ? 'none' : ''"
+    [style.padding]="padding"
+    [style.box-shadow]="shadow === 'false' ? 'none' : ''"
+
 >
     <ng-content></ng-content>
 </div>

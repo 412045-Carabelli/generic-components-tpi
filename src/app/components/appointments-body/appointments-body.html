@@ -1,5 +1,3 @@
-
-
 <main class="page px-4 pb-24">
 
   <div class="mt-4 header-spacer"></div>
@@ -29,7 +27,6 @@
     </app-card>
   </div>
 
-
   <div class="mt-4">
     <app-button
       text="+ Solicitar Nuevo Turno"
@@ -41,8 +38,6 @@
       (clicked)="solicitarNuevoTurno()"
     ></app-button>
   </div>
-
-
 
     @for (t of turnos; track t.id) {
       <app-card
@@ -59,69 +54,75 @@
           </div>
           <div class="flex-1">
             <h2 class="text-xl font-extrabold text-gray-900">{{ t.estudio }}</h2>
-            <div class="mt-2 flex items-center gap-2 text-gray-700">
+
+            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
               <mat-icon class="text-base">schedule</mat-icon>
               <span>{{ t.fecha }} a las {{ t.hora }}</span>
             </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700">
+            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
               <span class="text-xl">👨‍⚕️</span>
               <span>{{ t.doctor }}</span>
             </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700">
+            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
               <span class="text-xl">📍</span>
               <span>{{ t.sede }}</span>
             </div>
           </div>
+          <app-button
+            text="{{t.estado}}"
+            type="secondary"
+            width="100%"
+            height="48px"
+            [bgColor]="'#c1d6b6'"
+            [txtColor]="'rgba(42,104,27,0.68)'"
+            [yPad]="'1'"
+            [xPad]="'1'"
+
+          ></app-button>
         </div>
+
 
         <div card-actions class="w-full mt-2">
           @if (t.advertencias?.length){
-            @for(advertencia of t.advertencias; track $index){
+            <div style="width: 70%; margin: 0 auto; padding-bottom: 2rem" >
+              <app-expansion-panel title="Preparación" [badge]="t.advertencias?.length">
+                @if (t.advertencias){
+                <app-warning-item [warnings]="t.advertencias"></app-warning-item>
+                }
 
-              // aca deberia ir el desplegable generico
-
-            }
+              </app-expansion-panel>
+            </div>
           }
           <div class="flex items-center justify-between w-full">
-            <app-button
-              text="{{t.estado}}"
-              type="secondary"
-              width="100%"
-              height="48px"
-              [bgColor]="'#ffffff'"
-              [txtColor]="'rgba(0,0,0,0.47)'"
-              [yPad]="'1'"
-              [xPad]="'1'"
 
-            ></app-button>
 
           </div>
+          <div style="width: 70%;margin: 0 auto">
           <app-button
             text="Modificar Turno"
             type="secondary"
             width="100%"
             height="48px"
-            [bgColor]="'#ffffff'"
+            [bgColor]="'#f1ebeb'"
             [txtColor]="'rgba(0,0,0,0.47)'"
             [yPad]="'1'"
             [xPad]="'1'"
 
             (clicked)="modificarTurno(t.id)"
           ></app-button>
+          </div>
         </div>
       </app-card>
     }
 
 </main>
 
-<footer class="footer fixed left-0 right-0 bottom-0 px-4 py-3">
-  <app-button
-    text="Volver al Inicio"
-    type="primary"
-    width="100%"
-    height="56px"
-    [bgColor]="'#0f9d8a'"
-    [txtColor]="'#ffffff'"
-    (clicked)="volverInicio()"
-  ></app-button>
-</footer>
+<button
+  aria-label="Ir al inicio"
+  (click)="redirect('/home')"
+  class="flex align-middle justify-center !fixed !bottom-[calc(1rem+env(safe-area-inset-bottom))] !right-4 !z-50
+       !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
+       focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
+>
+  <mat-icon>home</mat-icon>
+</button>

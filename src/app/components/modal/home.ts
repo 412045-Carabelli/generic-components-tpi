@@ -14,9 +14,13 @@ import {ButtonComponent} from '../button/button.component';
   styleUrl: './home.css'
 })
 export class Home {
+  /*Instancia de dialogo*/
   private dialog = inject(MatDialog);
+
+  /*Mensaje recibido desde el componente hijo*/
   receivedMessage:number=0;
 
+  /*mock usuarios*/
   user = {
     fullName: 'SANCHEZ MARIA ELENA',
     role: 'Paciente',
@@ -24,13 +28,15 @@ export class Home {
     phone: undefined
   };
 
+  /* propiedades del dialog/modal */
   properties: DialogProperties = {
     content: ExampleContent,
     padding: 20,
     color: '#f9fafb',
     headerText: 'User Profile',
     headerColor: '#fff',
-    headerBackgroundColor: '#2563eb', // blue header bar
+    headerBackgroundColor: '#2563eb',
+    /* array de componentes de boton con propiedades customizadas */
     buttons: [{
       component: ButtonComponent,
       inputs: { text: 'cancel',  bgColor: '#e500ff', txtColor: '#ffffff' },
@@ -44,7 +50,7 @@ export class Home {
      }
 
 
-
+  /*Metodo para mostrar el dialogo en pantalla (abrir el modal)*/
   public openDialog(){
     const ref = this.dialog.open(GenericModal,{
       data: {
@@ -57,6 +63,7 @@ export class Home {
     });
   }
 
+  /*Medoto para el manejo de mensajes de botones dentro del modal*/
   onButton(which: 'close' | 'save') {
     if (which === 'close') {
       console.log('se recibe el mensaje de cierre, permitiendo logica en el padre');

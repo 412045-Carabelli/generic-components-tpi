@@ -1,33 +1,23 @@
-<main class="page px-4 pb-24">
+<main class="appointments-page">
+  <div class="header-spacer"></div>
 
-  <div class="mt-4 header-spacer"></div>
-
-  <div class="mt-4">
-    <app-card
-      [layout]="'row'"
-      [hovereable]="false"
-      color-tailwind="bg-[#169b8e] text-white"
-    >
-      <div card-header class="w-full">
-        <div class="flex items-center gap-3 w-full">
-          <div class="min-w-0">
-            <div class="font-extrabold text-xl">{{ paciente.nombre }}</div>
-            <div class="opacity-90">Paciente</div>
-          </div>
-
-          <div
-            class="w-14 h-14 rounded-full bg-white text-[#169b8e] font-bold grid place-items-center ml-80 shrink-0">
-            {{ iniciales }}
-          </div>
-        </div>
+  <app-card
+    class="patient-card"
+    [layout]="'row'"
+    [hovereable]="false"
+    [bgColor]="'var(--brand-primary-700)'"
+    [style.--border-color]="'transparent'"
+    [style.overflow]="'hidden'">
+    <div card-header class="patient-card__header">
+      <div class="patient-card__info">
+        <div class="patient-card__name">{{ paciente.nombre }}</div>
+        <div class="patient-card__role">Paciente</div>
       </div>
+      <div class="patient-card__avatar">{{ iniciales }}</div>
+    </div>
+  </app-card>
 
-      <div card-content></div>
-      <div card-actions></div>
-    </app-card>
-  </div>
-
-  <div class="mt-4">
+  <div class="cta-wrap">
     <app-button
       text="+ Solicitar Nuevo Turno"
       type="primary"
@@ -39,65 +29,61 @@
     ></app-button>
   </div>
 
-    @for (t of turnos; track t.id) {
-      <app-card
-        [layout]="'column'"
-        [paddingX]="'4rem'"
-        [paddingY]="'4rem'"
-        [marginY]="'1rem'"
-        [hovereable]="true"
-        color-tailwind="bg-white"
-      >
-        <div card-header class="flex items-start gap-4 w-full">
-          <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 grid place-items-center text-2xl">
-            <mat-icon>calendar_today</mat-icon>
-          </div>
-          <div class="flex-1">
-            <h2 class="text-xl font-extrabold text-gray-900">{{ t.estudio }}</h2>
-
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <mat-icon class="text-base">schedule</mat-icon>
-              <span>{{ t.fecha }} a las {{ t.hora }}</span>
-            </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <span class="text-xl">👨‍⚕️</span>
-              <span>{{ t.doctor }}</span>
-            </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <span class="text-xl">📍</span>
-              <span>{{ t.sede }}</span>
-            </div>
-          </div>
-          <app-button
-            text="{{t.estado}}"
-            type="secondary"
-            width="100%"
-            height="48px"
-            [bgColor]="'#c1d6b6'"
-            [txtColor]="'rgba(42,104,27,0.68)'"
-            [yPad]="'1'"
-            [xPad]="'1'"
-
-          ></app-button>
+  @for (t of turnos; track t.id) {
+    <app-card
+      class="appointment-card"
+      [layout]="'column'"
+      [paddingX]="'4rem'"
+      [paddingY]="'4rem'"
+      [marginY]="'1rem'"
+      [hovereable]="true">
+      <div card-header class="appointment-card__head">
+        <div class="appointment-card__icon">
+          <mat-icon fontSet="material-icons-outlined">calendar_today</mat-icon>
         </div>
 
+        <div class="appointment-card__main">
+          <h2 class="appointment-card__title">{{ t.estudio }}</h2>
 
-        <div card-actions class="w-full mt-2">
-          @if (t.advertencias?.length){
-            <div style="width: 70%; margin: 0 auto; padding-bottom: 2rem" >
-              <app-expansion-panel title="Preparación" [badge]="t.advertencias?.length">
-                @if (t.advertencias){
-                <app-warning-item [warnings]="t.advertencias"></app-warning-item>
-                }
-
-              </app-expansion-panel>
-            </div>
-          }
-          <div class="flex items-center justify-between w-full">
-
-
+          <div class="appointment-card__row">
+            <mat-icon class="appointment-card__row-icon" fontSet="material-icons-outlined">schedule</mat-icon>
+            <span>{{ t.fecha }} a las {{ t.hora }}</span>
           </div>
-          <div style="width: 70%;margin: 0 auto">
+          <div class="appointment-card__row">
+            <span class="appointment-card__emoji">👨‍⚕️</span>
+            <span>{{ t.doctor }}</span>
+          </div>
+          <div class="appointment-card__row">
+            <span class="appointment-card__emoji">📍</span>
+            <span>{{ t.sede }}</span>
+          </div>
+        </div>
+
+        <app-button
+          class="appointment-card__status"
+          [text]="t.estado"
+          type="secondary"
+          width="auto"
+          height="40px"
+          [bgColor]="'#c1d6b6'"
+          [txtColor]="'rgba(42,104,27,0.68)'"
+          [yPad]="'0.25'"
+          [xPad]="'0.75'">
+        </app-button>
+      </div>
+
+      <div card-actions class="appointment-card__actions">
+        @if (t.advertencias?.length) {
+          <div class="expander-wrap">
+            <app-expansion-panel title="Preparación" [badge]="t.advertencias?.length">
+              @if (t.advertencias) {
+                <app-warning-item [warnings]="t.advertencias"></app-warning-item>
+              }
+            </app-expansion-panel>
+          </div>
+        }
+
+        <div class="modify-wrap">
           <app-button
             text="Modificar Turno"
             type="secondary"
@@ -107,22 +93,14 @@
             [txtColor]="'rgba(0,0,0,0.47)'"
             [yPad]="'1'"
             [xPad]="'1'"
-
-            (clicked)="modificarTurno(t.id)"
-          ></app-button>
-          </div>
+            (clicked)="modificarTurno(t.id)">
+          </app-button>
         </div>
-      </app-card>
-    }
-
+      </div>
+    </app-card>
+  }
 </main>
 
-<button
-  aria-label="Ir al inicio"
-  (click)="redirect('/home')"
-  class="flex align-middle justify-center !fixed !bottom-[calc(1rem+env(safe-area-inset-bottom))] !right-4 !z-50
-       !bg-emerald-600 !text-white shadow-lg hover:!bg-emerald-700
-       focus:!ring-2 focus:!ring-emerald-500 p-3 rounded-xl cursor-pointer"
->
+<button aria-label="Ir al inicio" (click)="redirect('/home')" class="home-fab">
   <mat-icon>home</mat-icon>
 </button>

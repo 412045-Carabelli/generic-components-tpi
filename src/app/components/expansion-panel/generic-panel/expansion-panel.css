@@ -1,65 +1,67 @@
-.rotate-180 {
-  transform: rotate(180deg);
+.expansion-accordion {
+  width: 100%;
 }
 
-::ng-deep .orange-badge .mat-badge-content {
-  background-color: #f97316;
-  color: white;
+.expansion-panel {
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  border-radius: var(--radius-2xl, 1rem);
+  border: 1px solid var(--border-200, #e5e7eb);
+  background: var(--surface, #ffffff);
 }
 
-.accordion {
-  width: 100%; /* w-full */
+.expansion-header {
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
 }
 
-.panel {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
-  border-radius: 1rem; /* rounded-2xl */
-  border: 1px solid #e5e7eb; /* border border-gray-200 */
-}
-
-.panel-header {
-  padding-left: 1rem;  /* px-4 */
-  padding-right: 1rem;
-  padding-top: 0.75rem; /* py-3 */
-  padding-bottom: 0.75rem;
-}
-
-.header-content {
+.expansion-header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.panel-title {
-  font-size: 1rem; /* text-base */
-  font-weight: 600; /* font-semibold */
-  color: #1f2937; /* text-gray-800 */
-  display: flex;
+.expansion-title {
+  font-size: var(--text-base, 1rem);
+  font-weight: var(--font-semibold, 600);
+  color: var(--gray-800, #1f2937);
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem; /* gap-2 */
+  gap: var(--space-2, 0.5rem);
 }
 
-.panel-description {
-  font-size: 0.875rem; /* text-sm */
-  color: #6b7280; /* text-gray-500 */
+.expansion-description {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--gray-500, #6b7280);
 }
 
-.arrow {
-  transition: transform 0.3s ease; /* transition-transform duration-300 */
-  color: #6b7280; /* text-gray-500 */
+.expansion-arrow {
+  transition: transform 0.3s ease;
+  color: var(--gray-500, #6b7280);
 }
 
-.arrow.rotate-180 {
+.expansion-arrow.is-open {
   transform: rotate(180deg);
 }
 
-.panel-body {
-  padding: 1rem; /* p-4 */
-  font-size: 0.875rem; /* text-sm */
-  color: #374151; /* text-gray-700 */
+.expansion-body {
+  padding: var(--space-4, 1rem);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--gray-700, #374151);
 }
 
-.panel-body > * + * {
-  margin-top: 1rem; /* space-y-4 */
+.expansion-body > * + * {
+  margin-top: var(--space-4, 1rem);
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: var(--accent-500, #F26A1B);
+  color: var(--on-accent, #ffffff);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: var(--font-bold, 700);
+  line-height: 1;
 }

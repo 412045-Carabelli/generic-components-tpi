@@ -1,30 +1,147 @@
+.appointments-page {
+  max-width: var(--container-md, 720px);
+  margin: 0 auto;
+  padding: 0 var(--space-4, 1rem) var(--space-24, 6rem);
+}
 
-.header-spacer { height: 6rem; }
+.header-spacer { height: 3rem; }
 
-.page { max-width: 720px; margin: 0 auto; }
+.patient-card { margin-top: .5rem; color: var(--on-primary, #fff); }
 
-.pb-24 { padding-bottom: 6rem; }
+.patient-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-.estado-chip{display:inline-flex;align-items:center;border-radius:9999px;padding:.5rem .875rem;font-weight:600;border:1px solid #e5e7eb;color:#374151;background:#f9fafb}
+.patient-card__name { font-weight: var(--font-extrabold, 800); font-size: var(--text-xl, 1.25rem); }
 
-.estado-chip.chip-ok{background:#ecfdf5;color:#065f46;border-color:#a7f3d0}
+.patient-card__role { opacity: .9; }
 
+.patient-card__avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--brand-primary-700, #169b8e);
+  font-weight: var(--font-bold, 700);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
 
-.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}
+.cta-wrap { margin-top: var(--space-4, 1rem); }
 
-.px-4{padding-left:1rem;padding-right:1rem}.space-y-5>*+*{margin-top:1.25rem}
+.appointment-card { background: transparent; }
 
-.flex{display:flex}.items-center{align-items:center}.items-start{align-items:flex-start}
-.justify-between{justify-content:space-between}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}
+.appointment-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4, 1rem);
+  width: 100%;
+}
 
-.grid{display:grid}.place-items-center{place-items:center}
+.appointment-card__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-xl, .75rem);
+  background: var(--emerald-100, #d1fae5);
+  color: var(--emerald-600, #059669);
+  display: grid;
+  place-items: center;
+  font-size: var(--text-2xl, 1.5rem);
+}
 
-.w-full{width:100%}.w-14{width:3.5rem}.h-14{height:3.5rem}
+.appointment-card__main { flex: 1; }
 
-.rounded-xl{border-radius:.75rem}.rounded-full{border-radius:9999px}
+.appointment-card__title {
+  font-size: var(--text-xl, 1.25rem);
+  font-weight: var(--font-extrabold, 800);
+  color: var(--gray-900, #111827);
+}
 
-.text-gray-700{color:#374151}.text-gray-900{color:#111827}.text-xl{font-size:1.25rem}.font-extrabold{font-weight:800}
+.appointment-card__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, .5rem);
+  margin-top: var(--space-4, 1rem);
+  color: var(--gray-700, #374151);
+}
 
-.bg-white{background:#fff}.bg-emerald-100{background:#d1fae5}.text-emerald-600{color:#059669}
+.appointment-card__row-icon { font-size: var(--text-base, 1rem); }
 
-.fixed{position:fixed}.left-0{left:0}.right-0{right:0}.bottom-0{bottom:0}
+.appointment-card__emoji { font-size: var(--text-xl, 1.25rem); }
+
+.appointment-card__status { align-self: flex-start; }
+
+.appointment-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--space-5, 1.25rem);
+  padding-top: var(--space-4, 1rem);
+  width: 100%;
+}
+.expander-wrap,
+.modify-wrap {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.home-fab {
+  position: fixed;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  right: 1rem;
+  z-index: 50;
+  background: var(--emerald-600, #059669);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem;
+  border-radius: .75rem;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+}
+
+.home-fab:hover { background: var(--emerald-700, #047857); }
+
+.home-fab:focus-visible { outline: 2px solid var(--emerald-500, #10b981); outline-offset: 2px; }
+
+:host ::ng-deep app-card.appointment-card .card__actions {
+  margin-inline-start: 0 !important;
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+:host ::ng-deep app-card.patient-card .card {
+  border: 0;
+  border-radius: 12px;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+:host ::ng-deep app-card.patient-card .card__header,
+:host ::ng-deep app-card.patient-card .card__content,
+:host ::ng-deep app-card.patient-card .card__actions {
+  background: transparent;
+}
+
+:host ::ng-deep app-card.appointment-card .card {
+  border-radius: var(--radius-2xl, 1rem);
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .15s ease;
+}
+
+:host ::ng-deep app-card.appointment-card .card:hover {
+  border-color: var(--emerald-400, #34d399);
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  transform: translateY(-2px);
+}

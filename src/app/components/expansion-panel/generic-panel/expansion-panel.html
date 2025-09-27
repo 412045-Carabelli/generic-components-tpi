@@ -1,48 +1,33 @@
-<mat-accordion class="accordion">
+<mat-accordion class="expansion-accordion">
   <mat-expansion-panel
     hideToggle
-    class="panel"
+    class="expansion-panel"
     #panel="matExpansionPanel"
     (opened)="panelOpenState.set(true)"
     (closed)="panelOpenState.set(false)"
   >
-    <mat-expansion-panel-header class="panel-header">
-      <div class="header-content">
+    <mat-expansion-panel-header class="expansion-header">
+      <div class="expansion-header__content">
         <div>
-          <mat-panel-title class="panel-title">
+          <mat-panel-title class="expansion-title">
             {{ title }}
-
             @if (badge && badge > 0) {
-              <!-- contenido original del span:
-              [matBadge]="badge"
-                matBadgeOverlap="false"
-                matBadgeSize="large"
-                class="orange-badge"
-                -->
-              <span
-                class="inline-grid place-items-center rounded-full w-6 h-6 text-white text-xs font-bold"
-                style="background:#F26A1B"
-                [textContent]="badge"
-              ></span>
+              <span class="badge" [textContent]="badge"></span>
             }
           </mat-panel-title>
 
-          <mat-panel-description class="panel-description">
+          <mat-panel-description class="expansion-description">
             {{ description }}
           </mat-panel-description>
         </div>
 
-        <!-- Flecha con rotación -->
-        <mat-icon
-          class="arrow"
-          [class.rotate-180]="panel.expanded"
-        >
+        <mat-icon class="expansion-arrow" [class.is-open]="panel.expanded">
           expand_more
         </mat-icon>
       </div>
     </mat-expansion-panel-header>
 
-    <div class="panel-body">
+    <div class="expansion-body">
       <ng-content></ng-content>
     </div>
   </mat-expansion-panel>

@@ -3,12 +3,11 @@ import { Router } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { Card } from '../card/card';
 import { ButtonComponent } from '../button/button.component';
-
 import { MatDialog } from '@angular/material/dialog';
 import { GenericModal } from '../modal/generic-modal/generic-modal';
 import { GenericForm, FormConfig } from '../form/generic-form/generic-form';
-import {ExpansionPanel} from '../expansion-panel/generic-panel/expansion-panel';
-import {WarningItem} from '../expansion-panel/warning-item/warning-item';
+import { ExpansionPanel } from '../expansion-panel/generic-panel/expansion-panel';
+import { WarningItem } from '../expansion-panel/warning-item/warning-item';
 
 type EstadoTurno = 'Confirmado' | 'Pendiente' | 'Cancelado';
 
@@ -26,9 +25,7 @@ interface Turno {
 @Component({
   selector: 'app-appointments-body',
   standalone: true,
-  imports: [ButtonComponent, Card, MatIcon,
-    ExpansionPanel,
-    WarningItem],
+  imports: [ButtonComponent, Card, MatIcon, ExpansionPanel, WarningItem],
   templateUrl: './appointments-body.html',
   styleUrl: './appointments-body.css'
 })
@@ -66,7 +63,6 @@ export class AppointmentsBody {
     return parts.map(p => p[0]).join('').toUpperCase();
   }
 
-  // Placeholder hasta que me pases el FormConfig definitivo
   private nuevoTurnoFormConfig: FormConfig = {
     submitText: 'Crear turno',
     fields: [
@@ -102,14 +98,8 @@ export class AppointmentsBody {
           edgeRound: 16,
           color: '#ffffff',
           padding: 20,
-          // Contenido: tu GenericForm
           content: GenericForm,
-          // Inputs del contenido (FormConfig + valores iniciales)
-          contentInputs: {
-            config: this.nuevoTurnoFormConfig,
-            value: { observaciones: '' }
-          }
-          // IMPORTANTE: sin "buttons" -> NO aparece el footer del modal
+          contentInputs: { config: this.nuevoTurnoFormConfig, value: { observaciones: '' } }
         }
       }
     });
@@ -119,7 +109,7 @@ export class AppointmentsBody {
     this.router.navigate(['/turnos', id, 'editar']);
   }
 
-  public redirect(route:string) {
+  public redirect(route: string) {
     this.router.navigate([route]);
   }
 }

@@ -70,6 +70,56 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --brand-ig-stop-4: #8134AF;
   --brand-ig-stop-5: #515BD4;
   --brand-ig-gradient: linear-gradient(45deg, var(--brand-ig-stop-1), var(--brand-ig-stop-2), var(--brand-ig-stop-3), var(--brand-ig-stop-4), var(--brand-ig-stop-5));
+
+
+  --container-md: 720px;
+  --header-spacer: 6rem;
+
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-24: 6rem;
+
+  --radius-lg: .5rem;
+  --radius-xl: .75rem;
+  --radius-2xl: 1rem;
+
+  --shadow-md: 0 4px 6px rgba(0,0,0,.1);
+
+  --border-200: var(--border-color);
+
+  --text-xs: .75rem;
+  --text-sm: .875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+
+  --font-bold: 700;
+  --font-semibold: 600;
+  --font-extrabold: 800;
+
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --brand-600: var(--brand-primary-700);
+  --on-brand: var(--on-primary);
+
+  --accent-500: var(--brand-accent);
+  --on-accent: var(--on-primary);
+
+  --emerald-100: color-mix(in srgb, var(--brand-success) 12%, white);
+  --emerald-600: var(--brand-success);
+  --emerald-700: color-mix(in srgb, var(--brand-success) 85%, black);
+
+  --yellow-50: #fefce8;
+  --yellow-200: #fef08a;
+  --yellow-700: #ca8a04;
 }
 
 
@@ -101,4 +151,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: 700;
   letter-spacing: .2px;
 }
+
+
 

@@ -6,17 +6,18 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-
   padding-block: var(--card-padding-block, 3rem);
   padding-inline: var(--card-padding-inline, 1.5rem);
   margin-block: var(--card-margin-block, 0);
   margin-inline: var(--card-margin-inline, 0);
-
   background: var(--card-bg, var(--card, #ffffff));
   border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.18);
   transition: border-color .25s ease, box-shadow .25s ease, transform .15s ease;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  overflow: hidden;
 }
 
 .card--row { flex-direction: row; align-items: center; }

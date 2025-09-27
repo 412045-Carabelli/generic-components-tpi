@@ -11,8 +11,14 @@ import { MatBadgeModule } from '@angular/material/badge';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpansionPanel {
+
+  /*texto dento del modal*/
   @Input() title!: string;
+
+  /*texto gris debajo del titulo*/
   @Input() description?: string;
-  @Input() badge?: number; // ← cantidad de ítems para el badge
+
+  /*cantidad de ítems para el badge*/
+  @Input() badge?: number;
   readonly panelOpenState = signal(false);
 }

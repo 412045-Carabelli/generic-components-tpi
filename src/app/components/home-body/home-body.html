@@ -12,9 +12,9 @@
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
+      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
         <mat-icon>waving_hand</mat-icon>
-      </div>
+      </app-icon>
       <div class="flex flex-col">
         <h2 class="font-bold text-gray-800 self-start">BIENVENIDO!</h2>
         <span class="text-gray-500 text-sm text-left">Acceda facilmente a sus turnos, estudios e información personal.</span>
@@ -28,18 +28,19 @@
   >
   </app-card>
   <app-card class="app-body cursor-pointer"
+            [class.offline]="!isOnline"
             [layout]="'row'"
             [paddingX]="'2rem'"
             [paddingY]="'2rem'"
             [hovereable]="true"
-            (click)="redirect('/appointments')"
+            (click)="isOnline && redirect('/appointments')"
   >
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
+      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
         <mat-icon>event</mat-icon>
-      </div>
+      </app-icon>
       <div class="flex flex-col">
         <h2 class="font-bold text-gray-800 self-start">MIS TURNOS</h2>
         <span class="text-gray-500 text-sm">Ver y solicitar citas médicas</span>
@@ -66,9 +67,9 @@
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
+      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
         <mat-icon>description</mat-icon>
-      </div>
+      </app-icon>
       <div class="flex flex-col">
         <h2 class="font-bold text-gray-800 self-start">MIS ESTUDIOS</h2>
         <span class="text-gray-500 text-sm">Resultados de análisis</span>
@@ -95,9 +96,9 @@
 
     <!-- HEADER (icono a la izquierda) -->
     <div card-header class="flex items-center gap-3">
-      <div class="flex align-middle p-3 rounded-lg bg-teal-100 text-teal-600">
+      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
         <mat-icon>supervisor_account</mat-icon>
-      </div>
+      </app-icon>
       <div class="flex flex-col">
         <h2 class="font-bold text-gray-800 self-start">MI FAMILIA</h2>
         <span class="text-gray-500 text-sm">Datos familiares</span>
@@ -123,29 +124,41 @@
   >
 
     <!-- HEADER -->
-    <div card-header class="flex items-center gap-2 text-red-600">
-      <mat-icon>call</mat-icon>
-      <h2 class="font-bold text-gray-800">CONTACTO DE EMERGENCIA</h2>
+    <div card-header class="flex items-center gap-3 text-red-600">
+      <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" backgroundColor="oklch(70.4% 0.191 22.216)" shadow="false">
+        <mat-icon>emergency</mat-icon>
+      </app-icon>
+      <h2 class="font-bold text-gray-800 text-start">CONTACTO DE EMERGENCIA</h2>
     </div>
 
     <!-- CONTENT -->
     <div card-content class="flex flex-col gap-3 w-full">
 
       <!-- Teléfono principal -->
-      <div class="flex items-center gap-3 border rounded-lg bg-white p-3 shadow-sm">
-        <mat-icon class="text-green-600">phone</mat-icon>
-        <div class="flex flex-col">
-          <span class="font-semibold text-gray-700">Teléfono Principal</span>
-          <span class="text-green-600 font-bold text-lg">0800-123-4567</span>
+      <div class="flex flex-wrap items-center justify-between gap-3 border rounded-lg bg-white p-3 shadow-sm">
+        <div class="flex items-center gap-3">
+          <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" shadow="false">
+            <mat-icon>call</mat-icon>
+          </app-icon>
+          <div class="flex flex-col">
+            <span class="font-semibold text-gray-700 text-start">Teléfono</span>
+            <span class="text-gray-700 font-bold text-lg text-start">+54 11 1234-5678</span>
+          </div>
         </div>
       </div>
-
       <!-- WhatsApp -->
-      <div class="flex items-center gap-3 border rounded-lg bg-white p-3 shadow-sm">
-        <mat-icon class="text-green-600">mail</mat-icon>
-        <div class="flex flex-col">
-          <span class="font-semibold text-gray-700">WhatsApp</span>
-          <span class="text-green-600 font-bold text-lg">+54 11 1234-5678</span>
+      <div class="flex flex-wrap items-center justify-between gap-3 border rounded-lg bg-white p-3 shadow-sm">
+        <div class="flex items-center gap-3">
+          <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" shadow="false">
+            <mat-icon>sms</mat-icon>
+          </app-icon>
+          <div class="flex flex-col">
+            <span class="font-semibold text-gray-700 text-start">WhatsApp</span>
+            <span class="text-gray-700 font-bold text-lg text-start">+54 11 1234-5678</span>
+          </div>
+        </div>
+        <div class="w-full sm:w-auto">
+          <app-button txtSize="large" bgColor="oklch(50.5% 0.213 27.518)" xPad="12px" yPad="8px" width="100%" text="Contactar" (clicked)="sendToWhatsApp('Testing button')"></app-button>
         </div>
       </div>
 

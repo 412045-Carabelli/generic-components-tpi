@@ -13,11 +13,16 @@
             {{ title }}
 
             @if (badge && badge > 0) {
-              <span
-                [matBadge]="badge"
+              <!-- contenido original del span:
+              [matBadge]="badge"
                 matBadgeOverlap="false"
                 matBadgeSize="large"
                 class="orange-badge"
+                -->
+              <span
+                class="inline-grid place-items-center rounded-full w-6 h-6 text-white text-xs font-bold"
+                style="background:#F26A1B"
+                [textContent]="badge"
               ></span>
             }
           </mat-panel-title>

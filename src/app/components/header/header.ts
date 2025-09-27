@@ -1,14 +1,13 @@
 import {Component, computed, Input, signal} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {NgOptimizedImage} from '@angular/common';
-import {ButtonComponent} from '../button/button.component';
 
 
 @Component({
   selector: 'app-header',
   imports: [
     MatIconModule,
-    NgOptimizedImage,
+    NgOptimizedImage
   ],
   templateUrl: './header.html',
   styleUrl: './header.css'

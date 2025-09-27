@@ -1,16 +1,15 @@
 <div
-    class="icon-wrapper"
-    [class.icon--sm]="iconSize === 'sm'"
-    [class.icon--md]="iconSize === 'md'"
-    [class.icon--lg]="iconSize === 'lg'"
-    [class.icon--xl]="iconSize === 'xl'"
-    [style.color]="iconColor"
-    [style.background-color]="backgroundColor"
-    [style.border-radius]="borderRadius"
-    [style.margin]="margin"
-    [style.padding]="padding"
-    [style.box-shadow]="shadow === 'false' ? 'none' : ''"
-
+  class="icon-wrapper"
+  [class.icon--sm]="iconSize === 'sm'"
+  [class.icon--md]="iconSize === 'md'"
+  [class.icon--lg]="iconSize === 'lg'"
+  [class.icon--xl]="iconSize === 'xl'"
+  [style.--icon-bg]="backgroundColor"
+  [style.--icon-color]="iconColor"
+  [style.--icon-radius]="borderRadius"
+  [style.--icon-margin]="margin"
+  [style.--icon-padding]="padding"
+  [style.--icon-shadow]="shadow === 'false' ? 'none' : ''"
 >
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </div>

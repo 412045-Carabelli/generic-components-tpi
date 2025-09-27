@@ -40,6 +40,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   /* Estados */
   --brand-warn: #D32F2F;
   --brand-success: #2E7D32;
+  --warn-soft: color-mix(in srgb, var(--brand-warn) 12%, white);
 
   /* Neutros */
   --surface: #FFFFFF;

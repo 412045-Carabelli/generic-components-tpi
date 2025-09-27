@@ -1,21 +1,21 @@
 <article
   class="card"
-  [ngClass]="colorTailwind"
   [class.card--row]="layout === 'row'"
   [class.card--column]="layout === 'column'"
   [class.card--hoverable]="hovereable"
-  [style.padding-block]="paddingY"
-  [style.padding-inline]="paddingX"
-  [style.margin-block]="marginY"
-  [style.margin-inline]="marginX"
+  [style.--card-padding-block]="paddingY"
+  [style.--card-padding-inline]="paddingX"
+  [style.--card-margin-block]="marginY"
+  [style.--card-margin-inline]="marginX"
+  [style.--card-bg]="resolvedBgColor"
 >
   <!-- HEADER -->
-  <div class="cardheader self-start">
+  <div class="card__header">
     <ng-content select="[card-header]"></ng-content>
   </div>
 
   <!-- CONTENT -->
-  <div class="cardcontent">
+  <div class="card__content">
     <ng-content select="[card-content]"></ng-content>
   </div>
 

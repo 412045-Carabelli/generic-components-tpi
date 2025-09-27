@@ -1,171 +1,170 @@
-<!-- body-container.component.html -->
+
 <div class="body-container"
-     [class.gap--1]="gap === 'sm' "
-     [class.gap--3]="gap === 'md' "
-     [class.gap--5]="gap === 'lg' "
->
+     [class.gap--1]="gap === 'sm'"
+     [class.gap--3]="gap === 'md'"
+     [class.gap--5]="gap === 'lg'">
+
   <app-card class="app-body"
             [layout]="'row'"
             [paddingX]="'2rem'"
             [paddingY]="'2rem'"
             [hovereable]="true">
-
-    <!-- HEADER (icono a la izquierda) -->
-    <div card-header class="flex items-center gap-3">
-      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
+    <div card-header class="tile__header">
+      <app-icon margin="0"
+                iconColor="oklch(60% 0.118 184.704)"
+                iconSize="md"
+                backgroundColor="oklch(95.3% 0.051 180.801)"
+                shadow="false">
         <mat-icon>waving_hand</mat-icon>
       </app-icon>
-      <div class="flex flex-col">
-        <h2 class="font-bold text-gray-800 self-start">BIENVENIDO!</h2>
-        <span class="text-gray-500 text-sm text-left">Acceda facilmente a sus turnos, estudios e información personal.</span>
+
+      <div class="tile__texts">
+        <h2 class="tile__title">BIENVENIDO!</h2>
+        <span class="tile__sub tile__sub--left">Acceda facilmente a sus turnos, estudios e información personal.</span>
       </div>
     </div>
 
-    <!-- CONTENT vacío en este caso -->
     <div card-content></div>
-
-    <!-- ACTIONS (flecha a la derecha) -->
-  >
   </app-card>
-  <app-card class="app-body cursor-pointer"
+
+  <app-card class="app-body tile--clickable"
             [class.offline]="!isOnline"
             [layout]="'row'"
             [paddingX]="'2rem'"
             [paddingY]="'2rem'"
             [hovereable]="true"
-            (click)="isOnline && redirect('/appointments')"
-  >
-
-    <!-- HEADER (icono a la izquierda) -->
-    <div card-header class="flex items-center gap-3">
-      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
+            (click)="isOnline && redirect('/appointments')">
+    <div card-header class="tile__header">
+      <app-icon margin="0"
+                iconColor="oklch(60% 0.118 184.704)"
+                iconSize="md"
+                backgroundColor="oklch(95.3% 0.051 180.801)"
+                shadow="false">
         <mat-icon>event</mat-icon>
       </app-icon>
-      <div class="flex flex-col">
-        <h2 class="font-bold text-gray-800 self-start">MIS TURNOS</h2>
-        <span class="text-gray-500 text-sm">Ver y solicitar citas médicas</span>
+
+      <div class="tile__texts">
+        <h2 class="tile__title">MIS TURNOS</h2>
+        <span class="tile__sub">Ver y solicitar citas médicas</span>
       </div>
     </div>
 
-    <!-- CONTENT vacío en este caso -->
     <div card-content></div>
 
-    <!-- ACTIONS (flecha a la derecha) -->
-    <div card-actions class="ml-auto">
+    <div card-actions class="tile__actions">
       <mat-icon>chevron_right</mat-icon>
     </div>
-
-    >
   </app-card>
-  <app-card class="app-body cursor-pointer"
-    [layout]="'row'"
-    [paddingX]="'2rem'"
-    [paddingY]="'2rem'"
-    [hovereable]="true"
-    routerLink="/study"
-  >
 
-    <!-- HEADER (icono a la izquierda) -->
-    <div card-header class="flex items-center gap-3">
-      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
+  <app-card class="app-body tile--clickable"
+            [layout]="'row'"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
+            [hovereable]="true"
+            routerLink="/study">
+    <div card-header class="tile__header">
+      <app-icon margin="0"
+                iconColor="oklch(60% 0.118 184.704)"
+                iconSize="md"
+                backgroundColor="oklch(95.3% 0.051 180.801)"
+                shadow="false">
         <mat-icon>description</mat-icon>
       </app-icon>
-      <div class="flex flex-col">
-        <h2 class="font-bold text-gray-800 self-start">MIS ESTUDIOS</h2>
-        <span class="text-gray-500 text-sm">Resultados de análisis</span>
+
+      <div class="tile__texts">
+        <h2 class="tile__title">MIS ESTUDIOS</h2>
+        <span class="tile__sub">Resultados de análisis</span>
       </div>
     </div>
 
-    <!-- CONTENT vacío en este caso -->
     <div card-content></div>
 
-    <!-- ACTIONS (flecha a la derecha) -->
-    <div card-actions class="ml-auto">
+    <div card-actions class="tile__actions">
       <mat-icon>chevron_right</mat-icon>
     </div>
-
-    >
   </app-card>
-  <app-card class="app-body cursor-pointer"
-    [layout]="'row'"
-    [paddingX]="'2rem'"
-    [paddingY]="'2rem'"
-    [hovereable]="true"
-    routerLink="/family"
-  >
 
-    <!-- HEADER (icono a la izquierda) -->
-    <div card-header class="flex items-center gap-3">
-      <app-icon margin="0" iconColor="oklch(60% 0.118 184.704)" iconSize="md" backgroundColor="oklch(95.3% 0.051 180.801)" shadow="false">
+  <app-card class="app-body tile--clickable"
+            [layout]="'row'"
+            [paddingX]="'2rem'"
+            [paddingY]="'2rem'"
+            [hovereable]="true"
+            routerLink="/family">
+    <div card-header class="tile__header">
+      <app-icon margin="0"
+                iconColor="oklch(60% 0.118 184.704)"
+                iconSize="md"
+                backgroundColor="oklch(95.3% 0.051 180.801)"
+                shadow="false">
         <mat-icon>supervisor_account</mat-icon>
       </app-icon>
-      <div class="flex flex-col">
-        <h2 class="font-bold text-gray-800 self-start">MI FAMILIA</h2>
-        <span class="text-gray-500 text-sm">Datos familiares</span>
+
+      <div class="tile__texts">
+        <h2 class="tile__title">MI FAMILIA</h2>
+        <span class="tile__sub">Datos familiares</span>
       </div>
     </div>
 
-    <!-- CONTENT vacío en este caso -->
     <div card-content></div>
 
-    <!-- ACTIONS (flecha a la derecha) -->
-    <div card-actions class="ml-auto">
+    <div card-actions class="tile__actions">
       <mat-icon>chevron_right</mat-icon>
     </div>
-
-    >
   </app-card>
+
   <app-card
     [layout]="'column'"
     [paddingX]="'2rem'"
     [paddingY]="'2rem'"
     [hovereable]="false"
-    [color-tailwind]="'bg-red-100'"
-  >
+    [bgColor]="'var(--warn-soft)'">
 
-    <!-- HEADER -->
-    <div card-header class="flex items-center gap-3 text-red-600">
-      <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" backgroundColor="oklch(70.4% 0.191 22.216)" shadow="false">
+    <div card-header class="emergency__header">
+      <app-icon margin="0"
+                iconColor="oklch(50.5% 0.213 27.518)"
+                iconSize="md"
+                backgroundColor="oklch(70.4% 0.191 22.216)"
+                shadow="false">
         <mat-icon>emergency</mat-icon>
       </app-icon>
-      <h2 class="font-bold text-gray-800 text-start">CONTACTO DE EMERGENCIA</h2>
+      <h2 class="tile__title">CONTACTO DE EMERGENCIA</h2>
     </div>
 
-    <!-- CONTENT -->
-    <div card-content class="flex flex-col gap-3 w-full">
-
-      <!-- Teléfono principal -->
-      <div class="flex flex-wrap items-center justify-between gap-3 border rounded-lg bg-white p-3 shadow-sm">
-        <div class="flex items-center gap-3">
+    <div card-content class="emergency__list">
+      <div class="info-row">
+        <div class="info-row__left">
           <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" shadow="false">
             <mat-icon>call</mat-icon>
           </app-icon>
-          <div class="flex flex-col">
-            <span class="font-semibold text-gray-700 text-start">Teléfono</span>
-            <span class="text-gray-700 font-bold text-lg text-start">+54 11 1234-5678</span>
+          <div class="info-row__texts">
+            <span class="info-row__label">Teléfono</span>
+            <span class="info-row__value">+54 11 1234-5678</span>
           </div>
         </div>
       </div>
-      <!-- WhatsApp -->
-      <div class="flex flex-wrap items-center justify-between gap-3 border rounded-lg bg-white p-3 shadow-sm">
-        <div class="flex items-center gap-3">
+
+      <div class="info-row">
+        <div class="info-row__left">
           <app-icon margin="0" iconColor="oklch(50.5% 0.213 27.518)" iconSize="md" shadow="false">
             <mat-icon>sms</mat-icon>
           </app-icon>
-          <div class="flex flex-col">
-            <span class="font-semibold text-gray-700 text-start">WhatsApp</span>
-            <span class="text-gray-700 font-bold text-lg text-start">+54 11 1234-5678</span>
+          <div class="info-row__texts">
+            <span class="info-row__label">WhatsApp</span>
+            <span class="info-row__value">+54 11 1234-5678</span>
           </div>
         </div>
-        <div class="w-full sm:w-auto">
-          <app-button txtSize="large" bgColor="oklch(50.5% 0.213 27.518)" xPad="12px" yPad="8px" width="100%" text="Contactar" (clicked)="sendToWhatsApp('Testing button')"></app-button>
+        <div class="info-row__cta">
+          <app-button txtSize="large"
+                      bgColor="oklch(50.5% 0.213 27.518)"
+                      xPad="12px"
+                      yPad="8px"
+                      width="100%"
+                      text="Contactar"
+                      (clicked)="sendToWhatsApp('Testing button')"></app-button>
         </div>
       </div>
-
     </div>
 
-    <!-- ACTIONS vacío -->
     <div card-actions></div>
-
   </app-card>
 </div>

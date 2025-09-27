@@ -1,78 +1,30 @@
-import {Component, HostListener, inject, OnDestroy, OnInit} from '@angular/core';
-import {MatIcon} from '@angular/material/icon';
-import {Card} from '../card/card';
-import {Router, RouterLink} from '@angular/router';
+import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { Card } from '../card/card';
+import { Router, RouterLink } from '@angular/router';
 import { IconComponent } from '../icon/icon.component';
-import {ButtonComponent} from '../button/button.component';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-home-body',
-  imports: [
-    MatIcon,
-    Card,
-    RouterLink,
-    IconComponent,
-    ButtonComponent
-  ],
+  standalone: true,
+  imports: [MatIcon, Card, RouterLink, IconComponent, ButtonComponent],
   templateUrl: './home-body.html',
   styleUrl: './home-body.css'
 })
 export class HomeBody {
-  gap: "sm" | "md" | "lg" = "md";
+  gap: 'sm' | 'md' | 'lg' = 'md';
+  isOnline: boolean = true;
 
   constructor(private router: Router) {}
 
-  public redirect(route:string) {
+  redirect(route: string) {
     this.router.navigate([route]);
   }
 
-  isOnline: boolean = true;
-  //esto para testear -> FUNCIONALIDAD PARA DETECTAR SI LA APP ESTA OFFLINE O ONLINE
-  // isOnline: boolean = navigator.onLine;
-  //
-  // @HostListener('window:online')
-  // onOnline() {
-  //   this.isOnline = true;
-  // }
-  //
-  // @HostListener('window:offline')
-  // onOffline() {
-  //   this.isOnline = false;
-  // }
-  //
-  // private intervalId: any;
-
-  // ngOnInit() {
-    // // chequeo periódico cada 30s
-    // this.intervalId = setInterval(() => {
-    //   this.verificarConexionReal();
-    // }, 30000);
-    //
-    // // chequeo inicial
-    // this.verificarConexionReal();
-  // }
-  // ngOnDestroy() {
-  //   if (this.intervalId) {
-  //     clearInterval(this.intervalId);
-  //   }
-  // }
-  // private async verificarConexionReal() {
-  //   try {
-  //     // endpoint muy liviano de Google que devuelve 204 (sin contenido) // problema de cors -> funciona pero abria que hacerlo con un controlador PING
-  //     const response = await fetch('https://www.gstatic.com/generate_204', {
-  //       method: 'GET',
-  //       cache: 'no-cache'
-  //     });
-  //     this.isOnline = response.ok;
-  //   } catch {
-  //     this.isOnline = false;
-  //   }
-  // }
-
   sendToWhatsApp(message: string): void {
-    const phoneNumber = "5551234567"; // Cambiá por el número del restaurante
+    const phoneNumber = '5551234567';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, '_blank');
   }
-
 }

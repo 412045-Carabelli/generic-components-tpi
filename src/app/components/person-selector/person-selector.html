@@ -1,0 +1,42 @@
+<mat-dialog-content class="dialog-content">
+  <div class="dialog-header">
+    <mat-icon aria-hidden="false" aria-label="persona">person</mat-icon>
+    <h3 class="title">Seleccionar Persona</h3>
+    <button mat-icon-button aria-label="Cerrar" class="close-button" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-nav-list>
+    @for (p of people; track p.name) {
+      <mat-list-item (click)="select(p)">
+        <!-- Avatar a la izquierda -->
+        <div matListItemAvatar class="avatar" [class.selected]="p.selected">
+          {{ p.initials }}
+        </div>
+
+        <!-- Nombre principal y tilde si está seleccionada -->
+        <div matLine class="main-line">
+          <span class="name">{{ p.name }}</span>
+          @if (p.selected) {
+            <span class="check">✔</span>
+          }
+        </div>
+
+        <!-- relación y extra info -->
+        <div matLine class="sub-line">
+          <span class="relation">{{ p.relation }}</span>
+          @if (p.extra) {
+            <span class="extra"> · {{ p.extra }}</span>
+          }
+        </div>
+
+        <!-- texto en rojo si no tiene estudios -->
+        @if (p.noStudies) {
+          <div class="no-studies">Sin estudios</div>
+        }
+      </mat-list-item>
+    }
+  </mat-nav-list>
+</mat-dialog-content>
+

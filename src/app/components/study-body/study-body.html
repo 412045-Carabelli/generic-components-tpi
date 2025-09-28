@@ -2,6 +2,19 @@
 
   <h1 class="text-xl md:text-2xl font-bold">Mis Estudios</h1>
 
+  <!-- Desplegable Seleccionar Persona -->
+  <div
+    class="person-dropdown"
+    (click)="openPersonSelector()"
+  >
+  <span>
+    Mostrando estudios de:
+    <b>{{ selectedPerson?.name }}</b>
+  </span>
+    <mat-icon>expand_more</mat-icon>
+  </div>
+
+
   <div class="grid gap-5 md:grid-cols-2">
     <app-card
       [layout]="'column'"

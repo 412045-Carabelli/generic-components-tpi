@@ -15,3 +15,22 @@
   flex-direction: column;
   width: 100%;
 }
+.person-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e2e8f0; /* gris claro */
+  border-radius: 0.75rem;     /* rounded-xl */
+  padding: 0.75rem 1rem;      /* py-3 px-4 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.person-dropdown:hover {
+  background-color: #f9fafb; /* hover:bg-gray-50 */
+}
+
+.person-dropdown mat-icon {
+  color: #4b5563; /* gris oscuro */
+}

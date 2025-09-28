@@ -7,15 +7,15 @@ import {ButtonComponent} from '../button/button.component';
 import {IconComponent} from '../icon/icon.component';
 
 @Component({
-  selector: 'app-mobile-base-structure',
+  selector: 'app-base-structure',
   imports: [
     Header,
     RouterOutlet,
   ],
-  templateUrl: './mobile-base-structure.html',
-  styleUrl: './mobile-base-structure.css'
+  templateUrl: './base-structure.html',
+  styleUrl: './base-structure.css'
 })
-export class MobileBaseStructure {
+export class BaseStructure {
   showButton: boolean = true;
 
   onMenuClick() {

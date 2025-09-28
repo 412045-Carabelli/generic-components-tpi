@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {HomeBody} from './components/home-body/home-body';
-import {MobileBaseStructure} from './components/mobile-base-structure/mobile-base-structure';
+import {BaseStructure} from './components/base-structure/base-structure';
 import {StudyBody} from './components/study-body/study-body';
 import {FamilyBody} from './components/family-body/family-body';
 import {AppointmentsBody} from './components/appointments-body/appointments-body';

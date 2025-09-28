@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MobileBaseStructure} from './components/mobile-base-structure/mobile-base-structure';
+import {BaseStructure} from './components/base-structure/base-structure';
 import {Header} from './components/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [MobileBaseStructure],
+  imports: [BaseStructure],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

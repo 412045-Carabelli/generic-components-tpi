@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileBaseStructure } from './mobile-base-structure';
+import { BaseStructure } from './base-structure';
 
-describe('MobileBaseStructure', () => {
-  let component: MobileBaseStructure;
-  let fixture: ComponentFixture<MobileBaseStructure>;
+describe('BaseStructure', () => {
+  let component: BaseStructure;
+  let fixture: ComponentFixture<BaseStructure>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MobileBaseStructure]
+      imports: [BaseStructure]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MobileBaseStructure);
+    fixture = TestBed.createComponent(BaseStructure);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

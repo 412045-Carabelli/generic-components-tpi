@@ -41,7 +41,15 @@ export class StudyBody {
   openPersonSelector() {
     const ref = this.modal.open(PersonSelector, {
       data: { people: this.people },
-      panelClass: 'person-selector-modal'
+      //panelClass: 'person-selector-modal'
+      // --- Configuración del tamaño del modal ---
+      // Para que ocupe un 90% del ancho en móviles y un máximo en desktop
+      width: '90%',
+      maxWidth: '500px', // O el tamaño máximo que desees en escritorio
+      height: 'auto',
+      maxHeight: '80vh', // Para evitar que sea demasiado alto
+      // ----------------------------------------
+
     });
 
     ref.componentInstance.selected.subscribe((person: Person) => {

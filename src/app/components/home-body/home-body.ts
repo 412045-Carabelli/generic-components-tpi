@@ -1,9 +1,8 @@
-import {Component, HostListener, inject, OnDestroy, OnInit} from '@angular/core';
 import {MatIcon} from '@angular/material/icon';
 import {Card} from '../card/card';
 import {Router, RouterLink} from '@angular/router';
 import { IconComponent } from '../icon/icon.component';
-import {ButtonComponent} from '../button/button.component';
+import {Component, HostListener, inject, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home-body',
@@ -11,8 +10,7 @@ import {ButtonComponent} from '../button/button.component';
     MatIcon,
     Card,
     RouterLink,
-    IconComponent,
-    ButtonComponent
+    IconComponent
   ],
   templateUrl: './home-body.html',
   styleUrl: './home-body.css'
@@ -43,13 +41,13 @@ export class HomeBody {
   // private intervalId: any;
 
   // ngOnInit() {
-    // // chequeo periódico cada 30s
-    // this.intervalId = setInterval(() => {
-    //   this.verificarConexionReal();
-    // }, 30000);
-    //
-    // // chequeo inicial
-    // this.verificarConexionReal();
+  // // chequeo periódico cada 30s
+  // this.intervalId = setInterval(() => {
+  //   this.verificarConexionReal();
+  // }, 30000);
+  //
+  // // chequeo inicial
+  // this.verificarConexionReal();
   // }
   // ngOnDestroy() {
   //   if (this.intervalId) {
@@ -68,11 +66,4 @@ export class HomeBody {
   //     this.isOnline = false;
   //   }
   // }
-
-  sendToWhatsApp(message: string): void {
-    const phoneNumber = "5551234567"; // Cambiá por el número del restaurante
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
-  }
-
 }

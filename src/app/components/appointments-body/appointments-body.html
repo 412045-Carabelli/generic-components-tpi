@@ -48,39 +48,41 @@
         [hovereable]="true"
         color-tailwind="bg-white"
       >
-        <div card-header class="flex items-start gap-4 w-full">
+        <div card-header class="flex items-start gap-2 w-full">
           <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 grid place-items-center text-2xl">
             <mat-icon>calendar_today</mat-icon>
           </div>
           <div class="flex-1">
-            <h2 class="text-xl font-extrabold text-gray-900">{{ t.estudio }}</h2>
-
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <mat-icon class="text-base">schedule</mat-icon>
-              <span>{{ t.fecha }} a las {{ t.hora }}</span>
-            </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <span class="text-xl">👨‍⚕️</span>
-              <span>{{ t.doctor }}</span>
-            </div>
-            <div class="mt-1 flex items-center gap-2 text-gray-700 mt-4">
-              <span class="text-xl">📍</span>
-              <span>{{ t.sede }}</span>
-            </div>
+            <h2 class="text-sm sm:text-base md:text-lg font-extrabold text-gray-900 line-clamp-3">
+              {{ t.estudio }}
+            </h2>
           </div>
           <app-button
             text="{{t.estado}}"
             type="secondary"
             width="100%"
-            height="48px"
+            height="36px"
             [bgColor]="'#c1d6b6'"
             [txtColor]="'rgba(42,104,27,0.68)'"
             [yPad]="'1'"
-            [xPad]="'1'"
 
           ></app-button>
         </div>
 
+        <div card-content>
+          <div class="mt-1 flex items-center gap-4 text-gray-700 mt-4">
+            <span class="text-xl">🕔</span>
+            <span>{{ t.fecha }} a las {{ t.hora }}</span>
+          </div>
+          <div class="mt-1 flex items-center gap-4 text-gray-700 mt-4">
+            <span class="text-xl">👨‍⚕️</span>
+            <span>{{ t.doctor }}</span>
+          </div>
+          <div class="mt-1 flex items-center gap-4 text-gray-700 mt-4">
+            <span class="text-xl">📍</span>
+            <span>{{ t.sede }}</span>
+          </div>
+        </div>
 
         <div card-actions class="w-full mt-2">
           @if (t.advertencias?.length){
